@@ -1,0 +1,10 @@
+0.  miner's asthma, miner's consumption, pneumonoconiosis
+1.  returns resource usage measures
+2.  16
+3.  before and after are passed by reference (instead of by value), because passing large structs by value is slow. Passing or returning structs by
+    value, places copies of those values on the stack, causing stack overflow.
+4.  fgetc gets an unsigned char from fp and finds the next position indicator in fp until the EOF is reached. Each character is put through a conditional statement that checks if the character
+    is an alphabetical character or an apostrophe that is not at index 0 of the word, the character is added to the word array. If not the character is numerical, the word is ignored and
+    skiped ahead to the. Else if a space or punctuation is found then the conditional statement ends by adding \0 to the end of the word.
+5.  fgetc and fscanf, both read input from a stream. However fscanf() could cause problems, because words in files may not always end with a space or line return.
+6.  The value of const will not change later in the program it will keep the value assigned to it.
