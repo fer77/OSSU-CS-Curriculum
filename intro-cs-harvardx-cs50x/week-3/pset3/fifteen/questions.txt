@@ -1,0 +1,8 @@
+0. TODO
+    As small as 3 X 3 but not bigger than 9 X 9.
+1. TODO
+    Numbers(integers).
+2. TODO
+    greet().
+3. TODO
+    init, draw, move, won.
