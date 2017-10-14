@@ -1,0 +1,17 @@
+1.  A header file in the C standard library that is used to write code that involves hardware specific I/O.
+2.  An interger of 8-bit, 32-bit and 16-bit integers size.
+3.  1 byte in a BYTE
+    4 bytes in a DWORD (32 bits)
+    4 bytes in a LONG (32 bits)
+    2 bytes in a WORD (16 bits)
+4.  The first two bytes of any BMP file must contain B then M in ASCII.
+5.  biSize is a fixed number of bytes required by the BITMAPINFOHEADER.
+    bfSize is the size, in bytes, of the bitmap file plus the size of its 2 header files.
+6.  biHeight specifies the height of the bitmap, in pixels. If biHeight is postive, the image is bottom-up. If biHeight is negative,
+    the image is top-down.
+7.  biBitCount specifies the number of bits per pixel (bpp) or color depth.
+8.  if the file doesn't exist.
+9.  fread will read in from inptr 1 times, each time reading in sizeof(BITMAPINFOHEADER) bytes (for a total of sizeof(BITMAPINFOHEADER) bytes).
+10. Bytes of padding will be added to get a multiple of four.
+11. fseek changes the offset of the file pointer fp. fseek, allows you to change the location of the file pointer.
+12. SEEK_CUR is the current position indicator in the file.s
