@@ -7,5 +7,6 @@ Created on Wed Jun  8 11:40:08 2016
 
 cube = 28
 for guess in range(cube+1):
+    print(guess**3)
     if guess**3 == cube:
         print("Cube root of", cube, "is", guess)
