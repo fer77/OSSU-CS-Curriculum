@@ -52,3 +52,13 @@ probNumThree = z / x + y
 -- 2. no
 -- 3. no
 -- 4. yes
+
+-- 3.5 concatenation
+-- 1. no
+-- [1, 2, 3] ++ [4, 5, 6]
+-- >> [1,2,3,4,5,6]
+-- 2. no
+--  ?
+-- 3. yes
+-- concat ["<3", " Haskell"]
+-- >> "<3 Haskell"
