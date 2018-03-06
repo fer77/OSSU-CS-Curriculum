@@ -46,3 +46,9 @@ probNumThree = z / x + y
     where x = 7
           y = negate x
           z = y * 10
+
+-- 3.4 Scope
+-- 1. yes
+-- 2. no
+-- 3. no
+-- 4. yes
