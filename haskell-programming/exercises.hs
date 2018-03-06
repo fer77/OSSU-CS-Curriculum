@@ -64,13 +64,20 @@ probNumThree = z / x + y
 -- >> "<3 Haskell"
 
 -- 3.8
--- 1. yes
+-- 1. 
+-- a. yes
 -- concat [[1, 2, 3], [4, 5, 6]]
 -- >> [1,2,3,4,5,6]
--- 2. no
--- 3. yes
--- 4. sort of yes
--- 5. no
--- 6. yes
--- 7. no
--- 8. yes
+-- b. no
+-- c. yes
+-- d. sort of yes
+-- e. no
+-- f. yes
+-- g. no
+-- h. yes
+-- 2.
+-- a. (d)
+-- b. (c)
+-- c. (e)
+-- d. (a)
+-- e. (b)
