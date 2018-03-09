@@ -81,3 +81,18 @@ probNumThree = z / x + y
 -- c. (e)
 -- d. (a)
 -- e. (b)
+
+-- 1.
+-- a. 
+-- Prelude> (++) "Curry is awesome" "!"
+-- "Curry is awesome!"
+-- b. 
+-- Prelude> "Curry is awesome!" !! 4
+-- 'y'
+-- c. 
+-- drop 9 "Curry is awesome!"
+-- "awesome!"
+-- 2., 3. & 4.
+-- thirdLetter :: String
+-- thirdLetter x = [x !! 3]
+-- 5. 
