@@ -96,3 +96,10 @@ probNumThree = z / x + y
 -- thirdLetter :: String
 -- thirdLetter x = [x !! 3]
 -- 5. 
+
+-- 4.3
+-- 1. bool.
+-- 2. 'Blah' or 'Whoot'
+-- 3. Mood is a boolean.
+-- 4. 
+-- 5. mood-swing.hs
