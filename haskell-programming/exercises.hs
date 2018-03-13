@@ -103,3 +103,11 @@ probNumThree = z / x + y
 -- 3. Mood is a boolean.
 -- 4. 
 -- 5. mood-swing.hs
+
+-- 4.6
+-- FIND THE MISTAKES
+-- 1. not (True && True)
+-- 2. not (x == 6)
+-- 3. (1 * 2) >  5
+-- 4. "Merry" > "Happy"
+-- 5. "1, 2, 3 " ++ "look at me!"
