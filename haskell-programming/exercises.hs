@@ -111,3 +111,23 @@ probNumThree = z / x + y
 -- 3. (1 * 2) >  5
 -- 4. "Merry" > "Happy"
 -- 5. "1, 2, 3 " ++ "look at me!"
+
+-- 4.9
+-- 1. length :: Foldable t => t a -> Int
+-- 2. 
+    -- a) 5
+    -- b) 3
+    -- c) 2
+    -- d) 5
+-- 3. the first passes, it is dividing intergers. The second fails because the '/' expects an interger and instead it receives an operation to get a list's length.
+-- 4. div 6 (length [1, 2, 3])
+-- 5. bool, true
+-- 6. bool, false
+-- 7.
+    -- true
+    --  error
+    --  5
+    --  false
+    --  error
+-- 8. palindrome.hs
+-- 9. 
