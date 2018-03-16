@@ -133,3 +133,10 @@ probNumThree = z / x + y
 -- 9. abs.hs
 -- 10. 
 -- f = (fst x, fst y) -> (snd x, snd y)
+-- Syntax
+-- syntax.hs
+-- Match function names
+-- 1. c
+-- 2. b
+-- 3. a
+-- 4. d
