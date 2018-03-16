@@ -130,4 +130,6 @@ probNumThree = z / x + y
     --  false
     --  error
 -- 8. palindrome.hs
--- 9. 
+-- 9. abs.hs
+-- 10. 
+-- f = (fst x, fst y) -> (snd x, snd y)
