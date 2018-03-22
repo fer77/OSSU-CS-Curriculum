@@ -140,3 +140,11 @@ probNumThree = z / x + y
 -- 2. b
 -- 3. a
 -- 4. d
+
+-- 5.3
+-- 1. 
+    -- a) c
+    -- b) d 
+    -- c) b
+    -- d) a
+    -- e) e
