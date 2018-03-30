@@ -162,3 +162,27 @@ probNumThree = z / x + y
 
 -- 5.6
 -- types-exercises.hs
+
+-- 5.8 
+-- 1. a
+-- 2. a
+-- 3. d
+-- 4. c
+
+-- 1. 
+--  determine-the-type.hs
+    -- a) 54 :: Num a => a
+    -- b) (0, "dodge") :: Num t => (t, [Char])
+    -- c) (0, "dodge") :: Num t => (Integer, [Char])
+    -- d) False :: Bool
+    -- e) 5 :: Int
+    -- f) False :: Bool
+
+-- 2. w :: Num a => a
+-- 3. z y :: Num a => a
+-- 4. f :: Fractional a => a
+-- 5. f :: [Char]
+
+-- 1. determine-the-type.hs
+-- bigNum = (^) 5
+-- wahoo = bigNum $ 10
