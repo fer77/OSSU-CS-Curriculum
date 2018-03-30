@@ -159,3 +159,6 @@ probNumThree = z / x + y
 -- 7. d ?
 -- 8. a ?
 -- 9. c
+
+-- 5.6
+-- types-exercises.hs
