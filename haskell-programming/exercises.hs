@@ -186,3 +186,42 @@ probNumThree = z / x + y
 -- 1. determine-the-type.hs
 -- bigNum = (^) 5
 -- wahoo = bigNum $ 10
+-- 2. 
+-- 3. 
+-- a = (+)
+-- b = 5
+-- c = (a b 10)
+-- d = (a c 200)
+-- 4.
+-- b = undefined
+-- a = 12 + b
+-- c = undefined
+-- b = 10000 * c
+
+-- 2. constrained polymorphic
+-- 0 fully polymorphic type variable
+-- 1 concrete type constructor
+-- 2 concrete type constructor
+
+-- 3. concrete type constructor
+-- 0 concrete type constructor
+-- 1 fully polymorphic type variable
+-- 2 constrained polymorphic type variable
+-- 3 concrete type constructor
+
+-- 4. fully polymorphic
+-- 0 constrained polymorphic
+-- 1 fully polymorphic type variable
+-- 3 concrete type constructor
+
+-- 1. 
+-- functionH :: [a] -> a
+-- functionH (x:_) = x
+
+-- 2. functionC :: Ord a => a -> a -> Bool
+-- funtionC x y = 
+--     if (x > y) then True else False
+
+-- 3. functionS :: (a, b) -> a
+-- functionS (x, y) = y
+
