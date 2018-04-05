@@ -225,3 +225,8 @@ probNumThree = z / x + y
 -- 3. functionS :: (a, b) -> a
 -- functionS (x, y) = y
 
+-- Type-Kwon-Do
+-- 1. h i = g (f i)
+-- 2. e A = w (q A)
+-- 3. xform (X, Y) = (xz X, yz Y)
+-- 4. munge xToY yToTupleWZ x = fst (yToTupleWZ (xToY x))
