@@ -230,3 +230,55 @@ probNumThree = z / x + y
 -- 2. e A = w (q A)
 -- 3. xform (X, Y) = (xz X, yz Y)
 -- 4. munge xToY yToTupleWZ x = fst (yToTupleWZ (xToY x))
+
+-- Eq Instances
+-- 1. data TisAnInteger = 
+--         TisAn Integer
+    
+--     instance Eq (TisAnInteger a) where
+--         (==) (TisAn a) (TisAn a') = a == a'
+
+-- 2. data TwoIntegers = 
+--         Two Integer Integer
+
+--     instance Eq (TwoIntegers a) where
+--         (==) (Two a b) (Two a' b') = a == a' && b == b'
+
+-- 3. data StringOrInt =
+--         TisAnInt Int
+--       | TisAString String
+
+--     instance Eq StringOrInt where
+--         (==) (TisAnInt a) = a == a'
+--         (==) (TisAString a) = a == a'
+--         (==) __ = False
+
+-- 4. data Pair a =
+--         Pair a a
+
+--     instance Eq a => Eq (Pair a) where
+--         (==) (Pair a a') (Pair b b') = a == b && a' == b'
+
+-- 5. data Tuple a b =
+--         Tuple a b
+
+--     instance (Eq a, Eq b) => Eq (a, b) where
+--         (==) (Tuple a a') (Tuple b b') = a == b && a' == b'
+
+-- 6. data Which a =
+--         ThisOne a
+--       | ThisOne a
+
+--     instance Eq a = Eq (Which a) where
+--         (==) (ThisOne a) (ThisOne a') = a == a'
+--         (==) (ThisOne a) (ThisOne a') = a == a'
+--         (==) __ = False
+
+-- 7. data EitherOr a b = 
+--         Hello a
+--       | Goodbye b
+
+--     instance (Eq a, Eq b) = Eq (EitherOr a b) where
+--         (==) (Hello a) (Hello a') = a == a'
+--         (==) (Goodbye a) (Goodbye a') = a == a'
+--         (==) __ = False
