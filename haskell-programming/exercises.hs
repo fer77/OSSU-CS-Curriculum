@@ -282,3 +282,42 @@ probNumThree = z / x + y
 --         (==) (Hello a) (Hello a') = a == a'
 --         (==) (Goodbye a) (Goodbye a') = a == a'
 --         (==) __ = False
+
+-- 6.14
+-- 1. c
+-- 2. a
+-- 3. a
+-- 4. d
+-- 5. b
+
+-- Does it typecheck?
+-- 1. fixed by having typeclass Person derive Show
+-- data Person = Person Bool deriving Show
+
+-- printPerson :: Person -> IO ()
+-- printPerson person = putStrLn (show person)
+
+-- 2. woot needed to implement Eq
+-- data Mood = Blah | Woot deriving (Show, Eq)
+
+-- settleDown :: Mood -> Mood
+-- settleDown x = if x == Woot
+--                  then Blah
+--                  else x
+
+-- 3.
+-- a) What are acceptable inputs to settleDown?
+--  Blah or Woot. members of the Mood typeclass
+-- b) What will happen if you try to run settleDown 9?
+--  It will be a type error because the Mood typeclass doesn't implement an instance of Num
+-- c) What will happen if you try to run Blah > Woot
+--  It will be a type error because Mood doesn't implememt an Ord instance and methods.
+
+-- Given a datatype declaration, what can we do?
+-- 1. Doesn't type check because Papu expects an instance of Rocks and Yeah not
+--    String and Bool
+-- 2. Works
+-- 3. ?
+-- 4. ?
+
+-- Match the type
