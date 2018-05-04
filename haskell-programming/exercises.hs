@@ -321,3 +321,12 @@ probNumThree = z / x + y
 -- 4. ?
 
 -- Match the type
+
+-- 7.3 Grab bag
+-- 1. all are equivalent
+-- 2. mTh 3 :: Num a => a -> a -> a
+-- 3. 
+    --  //..
+    --  where f = \n -> n + 1
+    --  //..
+-- 4. addFive = \x -> \y -> (if x > y then y else x) + 5
