@@ -325,8 +325,11 @@ probNumThree = z / x + y
 -- 7.3 Grab bag
 -- 1. all are equivalent
 -- 2. mTh 3 :: Num a => a -> a -> a
--- 3. 
+-- 3.
+    -- a.
     --  //..
-    --  where f = \n -> n + 1
-    --  //..
--- 4. addFive = \x -> \y -> (if x > y then y else x) + 5
+    -- where f = \n -> n + 1
+    -- b. 
+    -- addFive = \x -> \y -> (if x > y then y else x) + 5
+    -- c.
+    -- mflip f x y = f y x
