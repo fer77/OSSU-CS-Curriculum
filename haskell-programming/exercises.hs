@@ -333,3 +333,13 @@ probNumThree = z / x + y
     -- addFive = \x -> \y -> (if x > y then y else x) + 5
     -- c.
     -- mflip f x y = f y x
+
+-- 7.4
+-- Variety Pack
+-- 1. 
+    -- a. k :: (a, b) -> b
+    -- b. k2 :: Num b => b, it is the same as k1, but not k3
+    -- c. k3.
+-- 2. 
+-- f :: (a, b, c) -> (d, e, f) -> ((a, d), (c, f))
+-- f (a, b, c) (d, e, f) = ((a, d), (c, f)) ??
