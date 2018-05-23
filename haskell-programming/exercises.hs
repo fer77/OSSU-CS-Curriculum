@@ -362,3 +362,6 @@ probNumThree = z / x + y
 --         LT -> -1
 --         GT -> 1
 --         EQ -> 0
+
+-- 7.5
+-- artful dodgy
