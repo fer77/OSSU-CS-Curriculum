@@ -365,3 +365,11 @@ probNumThree = z / x + y
 
 -- 7.5
 -- artful dodgy
+
+-- 7.7
+-- 3. a, b
+-- 4. strings
+-- 5. String -> String
+-- 6. c
+-- 7. numbers
+-- 8. Integer -> Integer
