@@ -373,3 +373,7 @@ probNumThree = z / x + y
 -- 6. c
 -- 7. numbers
 -- 8. Integer -> Integer
+
+-- 7.11
+-- 1. b
+-- 2. d
