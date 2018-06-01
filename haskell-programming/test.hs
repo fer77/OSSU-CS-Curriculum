@@ -1,13 +1,15 @@
--- myNum :: Integer 
--- myNum = 1
--- myVal f = myNum
+-- tensDigit :: Integral a => a -> a 
+-- tensDigit x = d
+--     where xLast = x `div` 10
+--           d = xLast `mod` 10
 
--- addOne :: Integer -> Integer
--- addOne x = x + 1
+foldBool :: a -> a -> Bool -> a 
+foldBool = x y condition =
+  case condition of
+    True -> x
+    False -> y
 
--- bindExp :: Integer -> String 
--- bindExp x =
---     let y = 5 in
---     "the integer was: " ++ show x ++ " and y was: " ++ show y
-
-
+foldBool1 :: a -> a -> Bool -> a 
+foldBool1 = x y condition
+    | condition = x
+    | otherwise = y

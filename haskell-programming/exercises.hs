@@ -377,3 +377,14 @@ probNumThree = z / x + y
 -- 7.11
 -- 1. b
 -- 2. d
+-- 3. d
+-- 4. a
+-- 5. d
+
+-- Let's write code
+-- 1. 
+    -- a.
+    -- b. I guess
+    -- divMod :: Integral a => a -> a -> (a, a)
+    -- tensDigit :: Integral a => a -> a
+    -- c. 
