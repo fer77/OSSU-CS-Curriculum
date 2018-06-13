@@ -15,7 +15,27 @@ empty
 ; Primitives to get items from a list
 ; first: selects the first element of a list
 
-               ; first consumes a list with at least one element and
-(first List1)  ; produces the first element of the list
+; first consumes a list with at least one element and produces the
+; first element of the list
+
+(first List1)
 (first List2)
 (first List3)
+
+; rest consumes a list with at least one elment and
+; produces the list after the first element
+
+(rest List1) 
+(rest List2)
+(rest List3)
+
+; (... List2)
+; how can we get the second element of List2 only using
+; the primitives first and rest?
+
+(first (rest List2))
+(first (rest (rest List2))) ; to get the third element
+
+; empty? produces true if argument is the empty list
+(empty? empty)
+(empty? List1)
