@@ -388,3 +388,11 @@ probNumThree = z / x + y
     -- divMod :: Integral a => a -> a -> (a, a)
     -- tensDigit :: Integral a => a -> a
     -- c. 
+
+-- 8.6
+-- 1. d
+-- 2. b
+-- 3. d
+-- 4. b
+
+-- Reviewing currying
