@@ -72,7 +72,7 @@ probNumThree = z / x + y
 2. no
 ```
  ?
- ```
+```
 3. yes
 ```
 concat ["<3", " Haskell"]
@@ -82,10 +82,10 @@ concat ["<3", " Haskell"]
 ## 3.8
 1. 
     a. yes
-    ```
+```
     concat [[1, 2, 3], [4, 5, 6]]
     >> [1,2,3,4,5,6]
-    ```
+```
     b. no
     c. yes
     d. sort of yes
@@ -102,20 +102,20 @@ concat ["<3", " Haskell"]
 
 1.
     a. 
-    ```
+```
     Prelude> (++) "Curry is awesome" "!"
     "Curry is awesome!"
-    ```
+```
     b. 
-    ```
+```
     Prelude> "Curry is awesome!" !! 4
     'y'
-    ```
+```
     c. 
-    ```
+```
     drop 9 "Curry is awesome!"
     "awesome!"
-    ```
+```
 2., 3. & 4.
 ```
 thirdLetter :: String
@@ -203,42 +203,42 @@ ___
 
  1.
     a)
-    ```haskell 
+```haskell 
     54 :: Num a => a
-    ```
+```
     b)
-    ```haskell 
+```haskell 
     (0, "dodge") :: Num t => (t, [Char])
-    ```
+```
     c)
-    ```haskell 
+```haskell 
     (0, "dodge") :: Num t => (Integer, [Char])
-    ```
+```
     d)
-    ```haskell 
+```haskell 
     False :: Bool
-    ```
+```
     e)
-    ```haskell 
+```haskell 
     5 :: Int
-    ```
+```
     f)
-    ```haskell 
+```haskell 
     False :: Bool
-    ```
+```
 
 2.
 ```haskell
  w :: Num a => a
- ```
+```
 3.
 ```haskell
  z y :: Num a => a
- ```
+```
 4.
 ```haskell
  f :: Fractional a => a
- ```
+```
 5.
 ```haskell
  f :: [Char]
@@ -431,18 +431,18 @@ ___
 2. mTh 3 :: Num a => a -> a -> a
 3.
     a.
-    ```haskell
+```haskell
      //..
     where f = \n -> n + 1
-    ```
+```
     b. 
-    ```haskell
+```haskell
     addFive = \x -> \y -> (if x > y then y else x) + 5
-    ```
+```
     c.
-    ```haskell
+```haskell
     mflip f x y = f y x
-    ```
+```
 
 ## 7.4
 ### Variety Pack
@@ -515,10 +515,10 @@ ___
     a.
 
     b. I guess
-    ```haskell
+```haskell
     divMod :: Integral a => a -> a -> (a, a)
     tensDigit :: Integral a => a -> a
-    ```
+```
     c. 
 
 ## 8.6
@@ -566,7 +566,6 @@ dividedBy num denom = go num denom 0
 sumN :: (Eq a, Num a) => a -> a
 sumN 0 = 0
 sumN n = n + sumN (n - 1)
-
 ```
 
 3.
@@ -581,3 +580,45 @@ multipliedBy x y = go x 0 0
 ### Fixing dividedBy
 ___
 
+```haskell
+data DividedResult
+    = Result (Integer, Integer)
+    | DividedByZero
+    deriving Show
+  
+  dividedBy :: Integer -> Integer -> DividedResult
+  dividedBy 0 _ = Result (0, 0)
+  dividedBy _ 0 = DividedByZero
+  dividedBy num denom = go absNum absDenom 0
+    where multiplier = signum num * signum denom
+          absNum = abs num
+          absDenom = abs denom
+          go n d count
+            | n < d = Result (count * multiplier, n)
+            | otherwise = go (n - d) d (count + 1)
+```
+
+### McCarthy 91 function
+---
+```haskell
+mc91 :: (Integral a) => a -> a
+mc91 n
+  | n > 100 = n - 10
+  | otherwise = mc91 (mc91 (n + 11))
+```
+
+### Numbers into words
+___
+
+```haskell
+module WordNumber where
+import Data.List (intersperse)
+
+digitToWord :: Int -> String
+digitToWord n = undefined
+
+digits :: Int -> [Int]
+digits n = undefine
+wordNumber :: Int -> String
+wordNumber n = undefined
+```
