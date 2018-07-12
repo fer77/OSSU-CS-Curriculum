@@ -543,9 +543,41 @@ frappe :: String -> String
 frappe = flippy "haha"
 ```
 
-1. "woops mrow woohoo!"
-2. "1 mrow haha"
-3. "woops mrow 2 mrow haha"
-4. "woops mrow blue mrow haha"
-5. "pink mrow haha mrow green mrow woops mrow blue"
+1. `"woops mrow woohoo!"`
+2. `"1 mrow haha"`
+3. `"woops mrow 2 mrow haha"`
+4. `"woops mrow blue mrow haha"`
+5. `"pink mrow haha mrow green mrow woops mrow blue"`
+
+### recursion
+___
+
+1.
+```haskell
+dividedBy :: Integral a => a -> a -> (a, a)
+dividedBy num denom = go num denom 0
+  where go n d count
+          | n < d = (count, n)
+          | otherwise = go (n - d) d (count + 1)
+```
+
+2.
+```haskell
+sumN :: (Eq a, Num a) => a -> a
+sumN 0 = 0
+sumN n = n + sumN (n - 1)
+
+```
+
+3.
+```haskell
+multipliedBy :: Integral a => a -> a -> a
+multipliedBy x y = go x 0 0
+  where go x' s count
+          | count == y = s
+          | otherwise = go x' (s + x') (count + 1)
+```
+
+### Fixing dividedBy
+___
 
