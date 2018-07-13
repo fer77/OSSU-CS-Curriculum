@@ -622,3 +622,12 @@ digits n = undefine
 wordNumber :: Int -> String
 wordNumber n = undefined
 ```
+
+## 9
+### Thy Fearful Symmetry
+___
+
+1.
+```haskell
+myWords :: String -> [String]
+```
