@@ -629,5 +629,46 @@ ___
 
 1.
 ```haskell
-myWords :: String -> [String]
+myWords' :: String -> [String]
+myWords' [] = []
+myWords' (' ':xs) = myWords xs
+myWords' xs = takeWhile (/= ' ') xs : myWords (dropWhile (/= ' ') xs)
+```
+
+2.
+```haskell
+module PoemLines where
+
+sentences :: String
+sentences = "Tyger Tyger, burning bright\n" ++
+            "In the forests of the night\n" ++
+            "What immortal hand or eye\n" ++
+            "Could frame thy fearful symmetry?"
+
+myLines :: String -> [String]
+myLines "" = []
+myLines script = line : myLines remaining
+  where line = takeWhile (/='\n') script
+        lineLength = length line
+        remaining = drop (lineLength + 1) script
+
+shouldEqual :: [String]
+shouldEqual =
+  [ "Tyger Tyger, burning bright"
+  , "In the forests of the night"
+  , "What immortal hand or eye"
+  , "Could frame thy fearful symmetry?"
+  ]
+
+main :: IO ()
+main =
+  print $ "Are they equal? " ++ show (myLines sentences == shouldEqual)
+```
+3.
+```haskell
+explodeStrOnChar :: Char -> String -> [String]
+explodeStrOnChar _ "" = []
+explodeStrOnChar char str = subString : explodeStrOnChar char remainingStr
+  where subString = takeWhile (/= char) str
+        remainingStr = drop (length subString + 1) str
 ```
