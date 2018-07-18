@@ -672,3 +672,24 @@ explodeStrOnChar char str = subString : explodeStrOnChar char remainingStr
   where subString = takeWhile (/= char) str
         remainingStr = drop (length subString + 1) str
 ```
+
+### Square Cube
+___
+
+1. 
+```haskell
+[(x, y) | x <- mySqr,
+          y <- mySqr]
+```
+2.
+```haskell
+[(x, y) | x <- mySqr,
+          y <- mySqr,
+          x < 50, y < 50]
+```
+3.
+```haskell
+length [(x, y) | x <- mySqr,
+                 y <- mySqr,
+                 x < 50, y > 50]
+```
