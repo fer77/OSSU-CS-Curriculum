@@ -1,5 +1,7 @@
 ## Starting Out
 
+Haskell has a static type system. The type of every expression is known at compile time
+
 ### An intro to lists
 ___
 
@@ -208,3 +210,48 @@ ghci> zip [1..] ["apple", "orange", "cherry", "mango"]
 
 ## Types and Typeclasses
 ___
+
+`::` is read as _"has type of"_. Explicit types are always denoted with the first letter in capital 
+
+> If you want to give your function a type declaration but are unsure as to what it should be, just write the function without a type declaration and check it with :t. Functions are expressions too, so :t works on them without a problem.
+
+**Int** stands for integer. It's used for whole numbers. 7 can be an Int but 7.2 cannot.
+
+**Integer** stands for integer. The main difference is that it's not bounded so it can be used to represent really really big numbers.
+
+```factorial :: Integer -> Integer  
+factorial n = product [1..n]  
+ghci> factorial 50  
+30414093201713378043612608166064768844377641568960512000000000000 
+```
+
+**Float** is a real floating point with single precision.
+
+```
+circumference :: Float -> Float  
+circumference r = 2 * pi * r  
+ghci> circumference 4.0  
+25.132742  
+```
+
+**Double** is a real floating point with double the precision!
+
+```circumference' :: Double -> Double  
+circumference' r = 2 * pi * r  
+ghci> circumference' 4.0  
+25.132741228718345 
+```
+
+**Bool** is a boolean type. It can have only two values: True and False.
+
+**Char** represents a character. It's denoted by single quotes. A list of characters is a string.
+
+### Type variables
+___
+
+Functions that have type variables are called **polymorphic functions**.
+
+### Typeclasses 101
+___
+
+A typeclass is a sort of interface that defines some behavior.
