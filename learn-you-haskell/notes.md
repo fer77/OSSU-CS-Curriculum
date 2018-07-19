@@ -255,3 +255,75 @@ Functions that have type variables are called **polymorphic functions**.
 ___
 
 A typeclass is a sort of interface that defines some behavior.
+
+`=>` is called a class constraint, read like this:
+
+```
+ghci> :t (==)  
+(==) :: (Eq a) => a -> a -> Bool  
+```
+The equality function `(==)` takes any two values that are of the same type `a -> a` and returns a Bool `-> Bool`. The type of those two values must be a member of the Eq class (this was the class constraint) `(Eq a)`.
+
+**Eq** `==`, `/=`
+**Ord** `>`, `<`, `>=` and `<=`. To be _Ord_, a type must be a member of _Eq_.
+**Show** Members of _Show_ can be presented as strings:
+
+```
+ghci> show 3  
+"3"  
+ghci> show 5.334  
+"5.334"  
+ghci> show True  
+"True"  
+```
+
+**Read** the oposite of _Show_:
+
+```
+ghci> read "True" || False  
+True  
+ghci> read "8.2" + 3.8  
+12.0  
+ghci> read "5" - 2  
+3  
+ghci> read "[1,2,3,4]" ++ [3]  
+[1,2,3,4,3]  
+```
+
+**type annotations** are a way of explicitly saying what the type of an expression should be. Done by adding `::` at the end of the an expression and specifying a type:
+
+```
+ghci> read "5" :: Int  
+5  
+ghci> read "5" :: Float  
+5.0  
+ghci> (read "5" :: Float) * 4  
+20.0  
+ghci> read "[1,2,3,4]" :: [Int]  
+[1,2,3,4]  
+ghci> read "(3, 'a')" :: (Int, Char)  
+(3, 'a')  
+```
+
+**Enum** are sequentially ordered types and they can be enumerated. They also have defined successors and predecesors, which you can be acessed using `succ` and `pred` functions.
+
+**Bounded** have an upper and a lower bound:
+
+```
+ghci> minBound :: Int  
+-2147483648  
+ghci> maxBound :: Char  
+'\1114111'  
+ghci> maxBound :: Bool  
+True  
+ghci> minBound :: Bool  
+False  
+```
+
+**Num** to be a _Num_, a type must already be  of _Show_ and _Eq_.
+**Integral** _Num_ includes all numbers, including real numbers and integral numbers. _Integral_ includes only integral (whole) numbers. In this typeclass are `Int` and `Integer`.
+**Floating** only floating point numbers, like _Float_ and _Double_
+
+## Syntax in Functions
+___
+
