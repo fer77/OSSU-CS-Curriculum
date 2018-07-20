@@ -353,3 +353,28 @@ ___
 
 _guards_ are a way of testing whether some property of a value (or several of them) are true or false. _Guards_ are a lot more readable when you have several conditions and they play really nicely with patterns.
 
+_Guards_ are indicated by pipes `|` that follow a function's name and its parameters. A guard is basically a boolean expression. If it evaluates to `True`, then the corresponding function body is used. If it evaluates to `False`, checking drops through to the next guard and so on.  The last guard is `otherwise`. `otherwise` is defined simply as `otherwise = True` and catches everything.
+
+###where!?
+___
+
+`where` The names we define in the where section of a function are only visible to that function, so we don't have to worry about them polluting the namespace of other functions.
+
+```haskell
+...
+| bmi <= skinny = "You're underweight, you emo, you!"  
+...
+| otherwise     = "You're a whale, congratulations!"  
+where bmi = weight / height ^ 2  
+      skinny = 18.5  
+      normal = 25.0  
+      fat = 30.0  
+```
+
+You can also use where bindings to pattern match:
+
+```haskell
+...  
+where bmi = weight / height ^ 2  
+      (skinny, normal, fat) = (18.5, 25.0, 30.0)  
+```
