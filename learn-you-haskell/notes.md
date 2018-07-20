@@ -290,7 +290,7 @@ ghci> read "[1,2,3,4]" ++ [3]
 [1,2,3,4,3]  
 ```
 
-**type annotations** are a way of explicitly saying what the type of an expression should be. Done by adding `::` at the end of the an expression and specifying a type:
+**type annotations** are a way of explicitly saying what the type of an expression should be. Done by adding `::` at the end of an expression and specifying a type:
 
 ```
 ghci> read "5" :: Int  
@@ -326,4 +326,30 @@ False
 
 ## Syntax in Functions
 ___
+
+### Pattern matching
+___
+
+Pattern matching consists of specifying patterns to which some data should conform and then checking to see if it does and deconstructing the data according to those patterns. You can pattern match on any data type — numbers, characters, lists, tuples, etc.
+
+_recursively_ defined in mathematics, the factorial of 0 is 1. Then the factorial of any positive integer is that integer multiplied by the factorial of its predecessor. Here's in Haskell terms:
+
+```haskell
+factorial :: (Integral a) => a -> a  
+factorial 0 = 1  
+factorial n = n * factorial (n - 1)  
+```
+
+_patterns_ handy way of breaking something up according to a pattern and binding it to names while keeping a reference to the pattern. You do that by putting a name and an `@` in front of a pattern `xs@(x:y:ys)`. This pattern will match exactly the same thing as `x:y:ys` but you can easily get the whole list via `xs` without repeating yourself:
+
+```haskell
+capital :: String -> String  
+capital "" = "Empty string, whoops!"  
+capital all@(x:xs) = "The first letter of " ++ all ++ " is " ++ [x]
+```
+
+### Guards, guards!
+___
+
+_guards_ are a way of testing whether some property of a value (or several of them) are true or false. _Guards_ are a lot more readable when you have several conditions and they play really nicely with patterns.
 
