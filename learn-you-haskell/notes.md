@@ -378,3 +378,33 @@ You can also use where bindings to pattern match:
 where bmi = weight / height ^ 2  
       (skinny, normal, fat) = (18.5, 25.0, 30.0)  
 ```
+
+### let it be
+___
+
+**let** Very similar to where bindings, let bindings can be used for pattern matching. The form is let `<bindings>` in `<expression>`. The names that you define in the let part are accessible to the expression after the _in_ part.
+
+```haskell
+let boot x y z = x * y + z in boot 3 4 2
+```
+
+### Case expressions
+___
+
+The syntax for case expressions is pretty simple:
+
+```haskell
+case expression of pattern -> result  
+                   pattern -> result  
+                   pattern -> result  
+                   ...  
+```
+`expression` is matched against the patterns.
+
+```haskell
+describeList :: [a] -> String  
+describeList xs = "The list is " ++ what xs  
+    where what [] = "empty."  
+          what [x] = "a singleton list."  
+          what xs = "a longer list." 
+```
