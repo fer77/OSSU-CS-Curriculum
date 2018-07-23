@@ -355,7 +355,7 @@ _guards_ are a way of testing whether some property of a value (or several of th
 
 _Guards_ are indicated by pipes `|` that follow a function's name and its parameters. A guard is basically a boolean expression. If it evaluates to `True`, then the corresponding function body is used. If it evaluates to `False`, checking drops through to the next guard and so on.  The last guard is `otherwise`. `otherwise` is defined simply as `otherwise = True` and catches everything.
 
-###where!?
+### where!?
 ___
 
 `where` The names we define in the where section of a function are only visible to that function, so we don't have to worry about them polluting the namespace of other functions.
@@ -408,3 +408,65 @@ describeList xs = "The list is " ++ what xs
           what [x] = "a singleton list."  
           what xs = "a longer list." 
 ```
+
+## Recursion
+
+**Recursion** is a way of defining functions in which the function is applied inside its own definition. _Recursion_ is important to Haskell because unlike imperative languages, there are no while loops or for loops in Haskell and instead we many times have to use _recursion_ to declare what something is.
+
+### Maximum awesome
+___
+
+The **maximum** function takes a list of things that can be ordered (instances of the Ord typeclass) and returns the biggest of them.
+
+```haskell
+maximum' :: (Ord a) => [a] -> a  
+maximum' [] = error "maximum of empty list" -- if the list is empty, crash!
+maximum' [x] = x -- if it's the singleton list, just give back the only element.
+maximum' (x:xs)   
+    | x > maxTail = x  
+    | otherwise = maxTail  
+    where maxTail = maximum' xs
+```
+
+or
+
+```haskell
+maximum' :: (Ord a) => [a] -> a  
+maximum' [] = error "maximum of empty list"  
+maximum' [x] = x  
+maximum' (x:xs) = max x (maximum' xs) 
+```
+
+call maximum' on `[2,5,1]`. The first two patterns won't match. The third one will and the list is split into `2` and `[5,1]`. The _where_ clause wants to know the maximum of `[5,1]`, so we follow that route. It matches the third pattern again and `[5,1]` is split into `5` and `[1]`. Again, the where clause wants to know the maximum of `[1]`. Because that's the edge condition, it returns `1`. Finally! So going up one step, comparing `5` to the maximum of `[1]` (which is `1`), we obviously get back `5`. So now we know that the maximum of `[5,1]` is `5`. We go up one step again where we had `2` and `[5,1]`. Comparing `2` with the maximum of `[5,1]`, which is `5`, we choose `5`.
+
+### A few more recursive functions
+___
+
+`replicate` takes an `Int` and some element and returns a list that has several repetitions of the same element. `replicate 3 5` returns `[5,5,5]`. The edge condition is `0` or negative numbers. If we try to replicate something zero times, return an empty list.
+
+```haskell
+replicate' :: (Num i, Ord i) => i -> a -> [a]  
+replicate' n x  
+    | n <= 0    = []  
+    | otherwise = x:replicate' (n-1) x 
+```
+
+### quick sort
+___
+
+```haskell
+quicksort :: (Ord a) => [a] -> [a]  
+quicksort [] = []  
+quicksort (x:xs) =   
+    let smallerSorted = quicksort [a | a <- xs, a <= x]  
+        biggerSorted = quicksort [a | a <- xs, a > x]  
+    in  smallerSorted ++ [x] ++ biggerSorted  
+```
+
+### Thinking recursively
+___
+
+Usually you define an edge case and then you define a function that does something between some element and the function applied to the rest. It doesn't matter if it's a list, a tree or any other data structure. A sum is the first element of a list plus the sum of the rest of the list. A product of a list is the first element of the list times the product of the rest of the list. The length of a list is one plus the length of the tail of the list.
+
+## Higher order functions
+___
