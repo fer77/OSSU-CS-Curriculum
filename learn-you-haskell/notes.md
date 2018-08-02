@@ -470,3 +470,11 @@ Usually you define an edge case and then you define a function that does somethi
 
 ## Higher order functions
 ___
+
+A function that can take functions as parameters and return functions as return values. A function that does either of those is called a **higher order function**.
+
+Putting a space between two things is called **function application**. When parameters are separeted by a space it creates a function that takes one parameter and returns a function.
+
+### Some higher-orderism is in order
+___
+
