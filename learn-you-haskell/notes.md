@@ -437,7 +437,7 @@ maximum' [x] = x
 maximum' (x:xs) = max x (maximum' xs) 
 ```
 
-call maximum' on `[2,5,1]`. The first two patterns won't match. The third one will and the list is split into `2` and `[5,1]`. The _where_ clause wants to know the maximum of `[5,1]`, so we follow that route. It matches the third pattern again and `[5,1]` is split into `5` and `[1]`. Again, the where clause wants to know the maximum of `[1]`. Because that's the edge condition, it returns `1`. Finally! So going up one step, comparing `5` to the maximum of `[1]` (which is `1`), we obviously get back `5`. So now we know that the maximum of `[5,1]` is `5`. We go up one step again where we had `2` and `[5,1]`. Comparing `2` with the maximum of `[5,1]`, which is `5`, we choose `5`.
+call maximum' on `[2,5,1]`. The first two patterns won't match. The third one will and the list is split into `2` and `[5,1]`. The _where_ clause wants to know the maximum of `[5, 1]`, so we follow that route. It matches the third pattern again and `[5, 1]` is split into `5` and `[1]`. Again, the where clause wants to know the maximum of `[1]`. Because that's the edge condition, it returns `1`. Finally! So going up one step, comparing `5` to the maximum of `[1]` (which is `1`), we obviously get back `5`. So now we know that the maximum of `[5, 1]` is `5`. We go up one step again where we had `2` and `[5, 1]`. Comparing `2` with the maximum of `[5, 1]`, which is `5`, we choose `5`.
 
 ### A few more recursive functions
 ___
@@ -478,3 +478,12 @@ Putting a space between two things is called **function application**. When para
 ### Some higher-orderism is in order
 ___
 
+### Map and filters
+___
+
+**map** takes a function and a list and applies that function to every element in the list, producing a new list.
+
+**filter** is a function that takes a _predicate_ (a predicate is a function that tells whether something is true or not. A function that returns a boolean) and a list and then returns the list of elements that satisfy the _predicate_.
+
+### Lambdas
+___
