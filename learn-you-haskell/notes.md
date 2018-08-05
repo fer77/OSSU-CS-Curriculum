@@ -487,3 +487,16 @@ ___
 
 ### Lambdas
 ___
+
+**Lambdas** are anonymous functions that are used only once.
+
+### Only folds and horses
+___
+
+A **fold** takes a binary function, a starting value (called the _accumulator_) and a list to fold up. The binary function itself takes two parameters. The binary function is called with the _accumulator_ and the first (or last) element and produces a new _accumulator_. Then, the binary function is called again with the new _accumulator_ and the now new first (or last) element, and so on. Once we've walked over the whole list, only the accumulator remains, which is what we've reduced the list to.
+
+**foldl** the left fold's binary function has the accumulator as the first parameter and the current value as the second one `\acc x ->`
+
+**foldr** the right fold's binary function has the current value as the first parameter and the accumulator as the second one `\x acc ->`
+
+The **foldl1** and **foldr1** functions work much like _foldl_ and _foldr_, only you don't need to provide them with an explicit starting value. They assume the first (or last) element of the list to be the starting value and then start the fold with the element next to it.
