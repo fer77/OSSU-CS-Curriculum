@@ -500,3 +500,47 @@ A **fold** takes a binary function, a starting value (called the _accumulator_) 
 **foldr** the right fold's binary function has the current value as the first parameter and the accumulator as the second one `\x acc ->`
 
 The **foldl1** and **foldr1** functions work much like _foldl_ and _foldr_, only you don't need to provide them with an explicit starting value. They assume the first (or last) element of the list to be the starting value and then start the fold with the element next to it.
+
+### Function application with $
+___
+
+**$** _function application_ is right-associative. When a **$** is encountered, the expression on its right is applied as the parameter to the function on its left.
+
+```haskell
+sum (map sqrt [1..130])
+sum $ map sqrt [1..130]
+```
+
+### function composition
+___
+
+Composing two functions that produces a new function that, when called with a parameter, `x` is the equivalent of calling `g` with the parameter `x` and then calling the `f` with that result.
+
+**.** function composition, which is defined like so:
+
+```haskell
+(.) :: (b -> c) -> (a -> b) -> a -> c  
+f . g = \x -> f (g x)  
+```
+
+is right-associative, so we can compose many functions at a time. The expression `f (g (z x))` is equivalent to `(f . g . z) x`.
+
+```haskell
+map (\xs -> negate (sum (tail xs))) [[1..5],[3..6],[1..7]]  
+[-14,-15,-27] 
+```
+
+to this:
+
+```haskell
+map (negate . sum . tail) [[1..5],[3..6],[1..7]]  
+[-14,-15,-27] 
+```
+
+If you want to rewrite an expression with a lot of parentheses using function composition, start by putting the last parameter of the innermost function after a `$` and then just composing all the other function calls, writing them without their last parameter and putting dots between them. If you have `replicate 100 (product (map (*3) (zipWith max [1,2,3,4,5] [4,5,6,7,8])))`, you can write it as `replicate 100 . product . map (*3) . zipWith max [1,2,3,4,5] $ [4,5,6,7,8]`. If the expression ends with three parentheses, chances are that if you translate it into function composition, it'll have three composition operators.
+
+## Modules
+
+### Loading modules
+___
+
