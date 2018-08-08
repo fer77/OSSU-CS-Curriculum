@@ -544,3 +544,71 @@ If you want to rewrite an expression with a lot of parentheses using function co
 ### Loading modules
 ___
 
+Loading modules on the command line
+
+`ghci> :m + Data.List `
+
+To load up the names from several modules inside GHCI, we don't have to do `:m +` several times, we can just load up several modules at once.
+
+`ghci> :m + Data.List Data.Map Data.Set`
+
+To load only a couple of functions from a module, selectively import just those functions. To import the `nub` and `sort` functions from `Data.List`, Type:
+
+```haskell
+import Data.List (nub, sort)  
+```
+
+To import all of the functions of a module except a few:
+
+```haskell
+import Data.List hiding (nub)
+```
+
+**qualified imports** is one way of dealing with name clashes. The `Data.Map` module, which offers a data structure for looking up values by key, exports a bunch of functions with the same name as Prelude functions, like filter or null. So when we import `Data.Map` and then call filter, Haskell won't know which function to use. Here's how we solve this:
+
+```haskell
+import qualified Data.Map
+```
+This makes it so that if we want to reference Data.Map's filter function, we have to do `Data.Map.filter`, whereas just `filter` still refers to the normal `filter` we all know and love. But typing out Data.Map in front of every function from that module is kind of tedious. That's why we can rename the qualified import to something shorter:
+
+```haskell
+import qualified Data.Map as M
+```
+Now, to reference `Data.Map`'s do `M.filter`.
+
+### Data.List
+___
+
+**intersperse**  
+**intercalate** 
+**transpose**
+**concat**
+**concatMap**  
+**and**
+**or** 
+**any** and **all**
+**iterate**  
+**splitAt**
+**takeWhile**
+**dropWhile**  
+**span**
+**sort**  
+**inits** and **tails**
+**isPrefixOf** and **isSuffixOf**
+**elem** and **notElem**
+**partition**
+**find**
+**elemIndex**
+**elemIndices**
+**findIndex**
+**lines**
+**unlines**
+**words** and **unwords**
+**delete**  
+**\\**
+**union**  
+**intersect**
+**insert**
+
+## Data.Char
+___
