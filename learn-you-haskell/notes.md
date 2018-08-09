@@ -612,3 +612,24 @@ ___
 
 ## Data.Char
 ___
+
+**isControl**
+**isSpace**
+**isLower**
+**isUpper**
+**isAlpha**
+**isAlphaNum**
+**isPrint**
+**isDigit**
+**isOctDigit**
+**isHexDigit**
+**isLetter**
+**isMark**
+**isNumber**
+**isPunctuation**
+**isSymbol**
+**isSeparator**
+**isAscii**
+**isLatin1**
+**isAsciiUpper**
+**isAsciiLower**
