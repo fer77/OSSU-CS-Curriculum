@@ -610,8 +610,17 @@ ___
 **intersect**
 **insert**
 
+
+When names in a module clash with a lot of Prelude and other module names, we do a qualified import.
+
+```
+import qualified Data.Set as Set  
+```
+
 ## Data.Char
 ___
+
+All these predicates have a type signature of `Char -> Bool`. Used to filter out things like strings.
 
 **isControl**
 **isSpace**
@@ -633,3 +642,33 @@ ___
 **isLatin1**
 **isAsciiUpper**
 **isAsciiLower**
+**toUpper**
+**toLower**
+**toTitle**
+**digitToInt**
+**intToDigit**
+**ord**
+
+### Data.map
+___
+
+The **Data.Map** module offers association lists that are much faster (because they're internally implemented with trees) and also it provides a lot of utility functions.
+
+**empty**
+**insert**
+**null**
+**size**
+**singleton**
+**lookup**
+**member**
+**map**
+**filter**
+**toList**
+**keys**
+**elems**
+**fromListWith**
+
+### Data.set
+___
+
+Sets are a cross between _lists_ and _maps_. All the elements in a set are unique. And because they're internally implemented with trees (much like maps in **Data.Map**), they're ordered.
