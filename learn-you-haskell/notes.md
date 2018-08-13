@@ -672,3 +672,21 @@ The **Data.Map** module offers association lists that are much faster (because t
 ___
 
 Sets are a cross between _lists_ and _maps_. All the elements in a set are unique. And because they're internally implemented with trees (much like maps in **Data.Map**), they're ordered.
+
+**fromList**
+**intersection**
+**difference**
+**union**
+**null**
+**size**
+**member**
+**empty**
+**singleton**
+**insert**
+**delete**
+**map**
+**filter**
+
+## Making our own modules
+___
+
