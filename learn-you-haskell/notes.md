@@ -708,3 +708,14 @@ By using record syntax to create this data types creates functions that lookup f
 ___
 
 > **never add typeclass constraints in data declarations.**
+
+A _type constructor_ is the part before the `=` and the _value constructor_ is right after it (possibly separated by `|`'s).
+
+### Derived instances
+___
+
+### Type synonyms
+___
+
+**Type synonyms** they give some types different names so that they make more sense to someone reading our code and documentation.
+
