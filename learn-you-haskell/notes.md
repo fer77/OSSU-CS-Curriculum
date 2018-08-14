@@ -617,7 +617,7 @@ When names in a module clash with a lot of Prelude and other module names, we do
 import qualified Data.Set as Set  
 ```
 
-## Data.Char
+### Data.Char
 ___
 
 All these predicates have a type signature of `Char -> Bool`. Used to filter out things like strings.
@@ -687,6 +687,24 @@ Sets are a cross between _lists_ and _maps_. All the elements in a set are uniqu
 **map**
 **filter**
 
-## Making our own modules
+#### Making our own modules
 ___
 
+## Making Our Own Types and Typeclasses
+___
+
+> it's common to use the same name as the type if there's only one value constructor
+
+`data` means that a new data type is defined. The `=` denotes the type (`Bool`). The parts after the `=` are **value constructors**. They specify the different values that this type can have. The `|` is read as _or_. We read this as: 
+
+>the Bool type can have a value of True or False. Both the type name and the value constructors have to be capital cased.
+
+### Record syntax
+___
+
+By using record syntax to create this data types creates functions that lookup fields in the data type.  Use record syntax when a constructor has several fields and it's not obvious which field is which.
+
+### Type parameters
+___
+
+> **never add typeclass constraints in data declarations.**
