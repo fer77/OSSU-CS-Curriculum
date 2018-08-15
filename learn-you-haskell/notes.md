@@ -732,3 +732,17 @@ ___
 
 >typeclasses: are like interfaces. A typeclass defines some behavior (like comparing for equality, comparing for ordering, enumeration) and then types that can behave in that way are made instances of that typeclass.
 
+### A yes-no typeclass
+___
+
+### The Functor typeclass
+___
+
+### Kinds and some type-foo
+___
+
+**kinds** labels assigned to types.
+
+`*` means that the type is a _concrete type_. A _concrete type_ is a type that doesn't take any type parameters and values can only have types that are concrete types.
+
+## Input and Output
