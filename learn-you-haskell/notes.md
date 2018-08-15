@@ -719,3 +719,16 @@ ___
 
 **Type synonyms** they give some types different names so that they make more sense to someone reading our code and documentation.
 
+### Recursive data structures
+___
+
+`4 `Cons` (5 `Cons` Empty)` is like `4:(5:[])`.
+
+A _fixity_ declaration define functions as operators, and states how tightly the operator binds and whether it's left-associative or right-associative.
+
+
+### Typeclasses 102
+___
+
+>typeclasses: are like interfaces. A typeclass defines some behavior (like comparing for equality, comparing for ordering, enumeration) and then types that can behave in that way are made instances of that typeclass.
+
