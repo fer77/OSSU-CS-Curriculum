@@ -1,3 +1,5 @@
+# Chapter 1 
+# Facts, Rules, and Queries
 ## 1.1 Some Simple Examples
 ___
 
@@ -168,3 +170,40 @@ playsAirGuitar/1
 ```
 
 Prolog won't get confused about a knowledge base containing the two different love predicates, for it regards the `love/2` predicate and the `love/3` predicate as distinct.
+
+# Chapter 2 
+# Unification and Proof Search
+
+## 2.1 Unification
+
+Two terms _unify_ if they are the same term or if they contain variables that can be _uniformly_ instantiated with terms in such a way that the resulting terms are equal.
+
+This means, for example, that the terms `mia` and `mia` _unify_, because they are the same atom. Similarly, the terms `42` and `42` _unify_, because they are the same number, the terms `X` and `X` _unify_, because they are the same variable, and the terms `woman(mia)` and `woman(mia)` _unify_, because they are the same complex term. The terms `woman(mia)` and `woman(vincent)` , however, do not _unify_, as they are not the same (and neither of them contains a variable that could be instantiated to make them the same).
+
+The terms `mia` and `X` ? They are not the same. However, the variable `X` can be instantiated to `mia` which makes them equal.
+
+ This tells us not only which terms Prolog will unify, but also what it will do to the variables to achieve this.
+
+1. If term1 and term2 are constants, then term1 and term2 unify if and only if they are the same atom, or the same number.
+2. If term1 is a variable and term2 is any type of term, then term1 and term2 unify, and term1 is instantiated to term2 . Similarly, if term2 is a variable and term1 is any type of term, then term1 and term2 unify, and term2 is instantiated to term1 . (So if they are both variables, they’re both instantiated to each other, and we say that they share values.)
+3. If term1 and term2 are complex terms, then they unify if and only if:
+
+    a. They have the same functor and arity, and
+
+    b. all their corresponding arguments unify, and
+
+    c. the variable instantiations are compatible. (For example, it is not possible to instantiate variable X to mia when unifying one pair of arguments, and to instantiate X to vincent when unifying another pair of arguments .)
+
+4. Two terms unify if and only if it follows from the previous three clauses that they unify.
+
+### Examples
+___
+
+The `=/2` predicate tests whether its two arguments unify. 
+
+### The occurs check
+___
+
+Prolog comes with a built-in predicate that carries out standard unification (that is, unification with the occurs check). The predicate is
+
+`unify_with_occurs_check/2.` So if we posed the query `?-unify_with_occurs_check(father(X),X).` we would get _no_.
