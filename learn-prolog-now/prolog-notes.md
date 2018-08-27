@@ -207,3 +207,12 @@ ___
 Prolog comes with a built-in predicate that carries out standard unification (that is, unification with the occurs check). The predicate is
 
 `unify_with_occurs_check/2.` So if we posed the query `?-unify_with_occurs_check(father(X),X).` we would get _no_.
+
+### Programming with unification
+___
+
+## 2.2 Proof Search
+
+ Prolog tries to satisfy queries one by one, working through the list in a left to right (->) direction.
+
+ Points in the search where there are several alternative ways of unifying a goal against the knowledge base are called **choice points**. Prolog keeps track of _choice points_ it has encountered, so that if it makes a wrong choice it can retreat to the previous _choice point_ and try something else instead. This process is **called backtracking**.
