@@ -175,6 +175,7 @@ Prolog won't get confused about a knowledge base containing the two different lo
 # Unification and Proof Search
 
 ## 2.1 Unification
+___
 
 Two terms _unify_ if they are the same term or if they contain variables that can be _uniformly_ instantiated with terms in such a way that the resulting terms are equal.
 
@@ -212,7 +213,18 @@ Prolog comes with a built-in predicate that carries out standard unification (th
 ___
 
 ## 2.2 Proof Search
+___
 
  Prolog tries to satisfy queries one by one, working through the list in a left to right (->) direction.
 
  Points in the search where there are several alternative ways of unifying a goal against the knowledge base are called **choice points**. Prolog keeps track of _choice points_ it has encountered, so that if it makes a wrong choice it can retreat to the previous _choice point_ and try something else instead. This process is **called backtracking**.
+
+# Chapter 3 
+# Recursion
+
+## 3.1 Recursive Definitions
+___
+
+A _predicate_ is recursively defined if one or more rules in its definition refers to itself.
+
+The word _declarative_ is used to talk about the logical meaning of Prolog knowledge bases. That is, the declarative meaning of a Prolog knowledge base is simply _what it says_, or _what it means, if we read it as a collection of logical statements_. 
