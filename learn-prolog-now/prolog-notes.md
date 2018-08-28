@@ -228,3 +228,10 @@ ___
 A _predicate_ is recursively defined if one or more rules in its definition refers to itself.
 
 The word _declarative_ is used to talk about the logical meaning of Prolog knowledge bases. That is, the declarative meaning of a Prolog knowledge base is simply _what it says_, or _what it means, if we read it as a collection of logical statements_. 
+
+## 3.2 Rule Ordering, Goal Ordering, and Termination
+___
+
+When it comes to non-terminating programs, rule ordering changes can lead to some extra solutions being found. Goal ordering, not rule ordering, is what is truly procedurally significant.
+
+>_thinking declaratively_ is thinking in terms of describing the problem accurately. 
