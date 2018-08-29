@@ -234,4 +234,46 @@ ___
 
 When it comes to non-terminating programs, rule ordering changes can lead to some extra solutions being found. Goal ordering, not rule ordering, is what is truly procedurally significant.
 
->_thinking declaratively_ is thinking in terms of describing the problem accurately. 
+>_thinking declaratively_ is thinking in terms of describing the problem accurately.
+
+# Chapter 4 
+# Lists
+
+## 4.1 Lists
+___
+
+Lists:
+
+```
+[mia, vincent, jules, yolanda] // list of length four
+[mia, robber(honey_bunny), X, 2, mia] // all sorts of Prolog objects can be elements of a list
+                                      //  items may occur more than once in the same list
+[]
+[mia, [vincent, jules], [butch, girlfriend(butch)]] // lists can contain other lists as elements
+[[], dead(z), [2, [b, c]], [], Z, [2, [b, c]]]
+```
+
+Any non-empty list consists of two parts: the **head** and the **tail**. The **head** is simply the first item in the list; the **tail** is everything else.
+
+The built-in operator `|` can be used to _decompose_ a list into its _head_ and _tail_.
+
+Only non-empty lists have heads and tails. If we try to use | to pull [] apart, Prolog will fail:
+
+```
+?- [X|Y] = [].
+no
+```
+
+The `_` underscore symbol is an **anonymous variable**. It is used when we need a variable, but we’re not interested in what Prolog instantiates the variable to.
+
+```
+?- [_,X,_,Y|_] = [[], dead(z), [2, [b, c]], [], Z].
+
+X = dead(z)
+Y = []
+Z = _9593
+yes
+```
+
+## 4.2 Member
+
