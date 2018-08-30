@@ -277,3 +277,21 @@ yes
 
 ## 4.2 Member
 
+**member**:
+
+```
+member(X,[X|T]).
+member(X,[H|T]) :- member(X,T).
+```
+
+we can rewrite member/2 as follows:
+
+```
+member(X,[X|_]).
+member(X,[_|T]) :- member(X,T).
+```
+
+This version is exactly the same, both declaratively and procedurally. But it’s just a little bit clearer: when you read it, you are forced to concentrate on what is essential.
+
+## 4.3 Recursing down Lists
+
