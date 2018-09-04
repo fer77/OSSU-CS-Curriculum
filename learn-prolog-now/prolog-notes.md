@@ -295,3 +295,33 @@ This version is exactly the same, both declaratively and procedurally. But it’
 
 ## 4.3 Recursing down Lists
 
+# Chapter 5 
+# Arithmetic
+
+## 5.1 Arithmetic in Prolog
+
+Prolog understands the usual conventions we use for disambiguating arithmetical expressions.
+
+## 5.2 A Closer Look
+
+The most important thing to understand is: `+, *, -, ÷` and `mod` do not carry out any arithmetic. In fact, expressions (3+2 , 3-2 and 3*2) are simply **terms**. The **functors** of these terms are `+ , -` and `*` respectively, and the arguments are `3` and `2` . Apart from the fact that the functors go between their arguments (instead of in front of them) these are ordinary Prolog terms, and unless we do something special, Prolog will not actually do any arithmetic.
+
+To force Prolog to actually evaluate arithmetic expressions we have to use `is`
+
+**is** sends a signal to Prolog that says "Don’t treat the given expression as a complex term! Call up your built-in arithmetic capabilities and carry out the calculations!"
+
+Arithmetic expressions to be evaluated must be on the right hand side of `is`:
+
+```
+?- X is 6+2.
+
+X = 8
+```
+
+## 5.3 Arithmetic and Lists
+
+_tail recursive_ programs have less bookkeeping overhead, and this makes them more efficient.
+
+## 5.4 Comparing Integers
+
+
