@@ -324,4 +324,15 @@ _tail recursive_ programs have less bookkeeping overhead, and this makes them mo
 
 ## 5.4 Comparing Integers
 
+Note `=` tries to unify its arguments; it does not evaluate them. That's `=:=` 's role:
 
+```
+?- 4=4.
+yes
+
+?- 2+2 =4.
+no
+
+?- 2+2 =:= 4.
+yes
+```
