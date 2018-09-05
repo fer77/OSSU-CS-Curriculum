@@ -336,3 +336,48 @@ no
 ?- 2+2 =:= 4.
 yes
 ```
+
+# Chapter 6 
+# More Lists
+
+## 6.1 Append
+
+## Defining append
+
+`append/3`:
+
+```
+append([],L,L).
+append([H|T],L2,[H|L3]) :- append(T,L2,L3).
+```
+
+`append/3` is a recursive definition. The base case states that appending an empty list to any list yields that same list.
+
+The recursive step states that when we concatenate a non-empty list `[H|T]` with a list `L2`, the result is a list whose head is `H` and tail is the result of concatenating `T` with `L2`.
+
+## Using append
+
+## 6.2 Reversing a list
+
+## Naive reverse using append
+
+The predicate spends most of its time in the recursive calls to append, making it very hard to see what is going on
+
+## Reverse using an accumulator
+
+The idea is simply to push each element onto the head of the accumulator, like this:
+
+```
+List: [a,b,c,d]
+List: [b,c,d]
+List: [c,d]
+List: [d]
+List: []
+Accumulator: [] 
+Accumulator: [a] 
+Accumulator: [b,a] 
+Accumulator: [c,b,a] 
+Accumulator: [d,c,b,a]
+```
+
+At the start, the accumulator will be []. Simply take the head of the list and add it as the head of the accumulator. Then carry on processing the tail, we are then faced with the task of reversing [b,c,d], and our accumulator is [a]. Again we take the head of the list we are trying to reverse and add it as the head of the accumulator (thus our new accumulator is [b,a]) and carry on trying to reverse [c,d]. Again we use the same idea, so we get a new accumulator [c,b,a], and try to reverse [d]. Needless to say, the next step yields an accumulator [d,c,b,a] and the new goal of trying to reverse []. This is where the process stops:
