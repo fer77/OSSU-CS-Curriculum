@@ -380,4 +380,16 @@ Accumulator: [c,b,a]
 Accumulator: [d,c,b,a]
 ```
 
-At the start, the accumulator will be []. Simply take the head of the list and add it as the head of the accumulator. Then carry on processing the tail, we are then faced with the task of reversing [b,c,d], and our accumulator is [a]. Again we take the head of the list we are trying to reverse and add it as the head of the accumulator (thus our new accumulator is [b,a]) and carry on trying to reverse [c,d]. Again we use the same idea, so we get a new accumulator [c,b,a], and try to reverse [d]. Needless to say, the next step yields an accumulator [d,c,b,a] and the new goal of trying to reverse []. This is where the process stops:
+At the start, the accumulator will be `[]`. Take the head of the list and add it as the head of the accumulator. Carry on processing the tail, by reversing `[b,c,d]`, and the accumulator is `[a]`. Again, take the head of the list we are trying to reverse and add it as the head of the accumulator (this way our new accumulator is `[b,a]`) and carry on trying to reverse [c,d]. Using the same idea, we get a new accumulator `[c,b,a]`, and try to reverse `[d]`. The next step yields an accumulator `[d,c,b,a]` and the new goal of trying to reverse `[]`.
+
+accumulator code:
+
+```
+accRev([H|T],A,R) :- accRev(T,[H|A],R). accRev([],A,A).
+```
+
+initialization of the accumulator:
+
+```
+rev(L,R) :- accRev(L,[],R).
+```
