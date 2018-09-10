@@ -442,3 +442,20 @@ symbols:
 ## Adding recursive rules
 
 ## A DCG for a simple formal language
+
+# Chapter 8
+# More Definite Clause Grammars
+
+## 8.1 Extra arguments
+
+## Context free grammars with features
+
+## Building parse trees
+
+## 8.2 Extra goals
+
+## Separating rules and lexicon
+
+**First argument indexing** is a technique for making Prolog’s knowledge base access more efficient.
+
+## 8.3 Concluding remarks
