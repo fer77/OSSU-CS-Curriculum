@@ -693,3 +693,40 @@ length [(x, y) | x <- mySqr,
                  y <- mySqr,
                  x < 50, y > 50]
 ```
+
+## Bottom Madness 
+### Will it blow up?
+
+1. `[x^y | x <- [1..5], y <- [2, undefined]]`, explodes
+2.  `take 1 $
+    [x^y | x <- [1..5], y <- [2, undefined]]`, returns `[1]`
+3. `sum [1, undefined, 3]`, explodes
+4. `length [1, 2, undefined]`, no returns the length of the list `3`
+5. `length $ [1, 2, 3] ++ undefined`, explodes
+6. `take 1 $ filter even [1, 2, 3, undefined]`, returns `[2]`
+7. `take 1 $ filter even [1, 3, undefined]`, explodes
+8. `take 1 $ filter odd [1, 3, undefined]`, returns `[1]`
+9. `take 2 $ filter odd [1, 3, undefined]`, returns `[1, 3]`
+10. `take 3 $ filter odd [1, 3, undefined]`, explodes
+
+### Intermission: Is it in normal form?
+
+For each expression below, determine whether it’s in:
+1. normal form, which implies weak head normal form;
+2. weak head normal form only; or,
+3. neither.
+
+1. `[1, 2, 3, 4, 5]`
+> NF
+2. `1 : 2 : 3 : 4 : _`
+> WHNF
+3. `enumFromTo 1 10`
+> ?
+4. `length [1, 2, 3, 4, 5]`
+> ?
+5. `sum (enumFromTo 1 10)`
+> ?
+6. `['a'..'m'] ++ ['n'..'z']`
+> ?
+7. `(_, 'b')`
+> WHF
