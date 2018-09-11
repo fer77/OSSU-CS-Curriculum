@@ -459,3 +459,7 @@ symbols:
 **First argument indexing** is a technique for making Prolog’s knowledge base access more efficient.
 
 ## 8.3 Concluding remarks
+
+# 9 A Closer Look at Terms
+
+## 9.1 Comparing terms
