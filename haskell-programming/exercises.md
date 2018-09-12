@@ -711,7 +711,7 @@ length [(x, y) | x <- mySqr,
 
 ### Intermission: Is it in normal form?
 
-For each expression below, determine whether it’s in:
+For each expression below, determine whether it's in:
 1. normal form, which implies weak head normal form;
 2. weak head normal form only; or,
 3. neither.
@@ -768,3 +768,32 @@ c) `map sum [[1..5], [1..5], [1..5]]`, `[15,15,15]`
 ```
 map (\x -> bool x (-x) (x == 3)) [1..10]
 ```
+
+## Filtering
+
+1. Given the above, how might we write a filter function that would give us all the multiples of 3 out of a list from 1-30?
+
+```
+filter (\x -> (rem x 3) == 0) [1..30]
+```
+
+2. Recalling what we learned about function composition, how could we compose the above function with the length function to tell us _how many_ multiples of 3 there are between 1 and 30?
+
+```
+length (filter (\x -> rem x 3 == 0) [1..30])
+```
+
+3. Next we're going to work on removing all articles ('the', 'a', and 'an') from sentences. You want to get to something that works like this:
+
+```
+Prelude> myFilter "the brown dog was a goof"
+["brown","dog","was","goof"]
+```
+
+You may recall that earlier in this chapter we asked you to write a function that separates a string into a list of strings by separating them at spaces. That is a standard library function called words. You may consider starting this exercise by using words (or your version, of course).
+
+```
+```
+
+## Zipping
+
