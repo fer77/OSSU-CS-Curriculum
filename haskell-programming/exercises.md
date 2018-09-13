@@ -797,3 +797,36 @@ You may recall that earlier in this chapter we asked you to write a function tha
 
 ## Zipping
 
+1. Write your own version of zip and ensure it behaves the same as the original.
+
+```
+zip :: [a] -> [b] -> [(a, b)]
+zip = undefined
+```
+
+```
+zippy [] = []
+zippy [] _ = []
+zippy _ [] = []
+zippy (x:xs) (y:ys) = (x, y) : zippy xs ys
+```
+
+2. Do what you did for zip, but now for zipWith:
+
+```
+zipWith :: (a -> b -> c)
+        -> [a] -> [b] -> [c]
+zipWith = undefined
+```
+
+```
+zippyWith _ [] _ = []
+zippyWith _ _ [] = []
+zippyWith f (x:xs) (y:ys) = f x y : zippypWith f xs ys
+```
+
+3. Rewrite your zip in terms of the zipWith you wrote.
+
+```
+zippy = zippyWith (\x y -> (x, y))
+```
