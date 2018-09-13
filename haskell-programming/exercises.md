@@ -881,3 +881,19 @@ cap (x:_) = toUpper x
 capFirst :: String -> Char
 capFirst = toUpper . head
 ```
+
+### Writing your own standard functions
+
+1.
+```haskell
+
+```
+2.
+3.
+4.
+5.
+6.
+7.
+8.
+9.
+10.
