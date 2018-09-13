@@ -856,6 +856,7 @@ onlyUpper = filter isUpper
 
 ```haskell
 cap :: String -> String
+cap "" = ""
 cap (x: xs) = toUpper x : xs
 ```
 
@@ -867,6 +868,16 @@ convertToUpper "" = ""
 convertToUpper (x : xs) = toUpper x : converToUpper xs
 ```
 
-5. 
+5. To do the final exercise in this section, we’ll need another standard function for lists called head. Query the type of head and experiment with it to see what it does. Now write a function that will capitalize the first letter of a String and return only that letter as the result.
 
-6. 
+```haskell
+cap :: String -> Char
+cap (x:_) = toUpper x
+```
+
+6. Cool. Good work. Now rewrite it as a composed function. Then, for fun, rewrite it pointfree.
+
+```haskell
+capFirst :: String -> Char
+capFirst = toUpper . head
+```
