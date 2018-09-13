@@ -631,7 +631,7 @@ ___
 ```haskell
 myWords' :: String -> [String]
 myWords' [] = []
-myWords' (' ':xs) = myWords xs
+myWords' (' ': = ) = myWords xs
 myWords' xs = takeWhile (/= ' ') xs : myWords (dropWhile (/= ' ') xs)
 ```
 
@@ -741,7 +741,7 @@ For each expression below, determine whether it's in:
 `take 2 $ map (+1) [1, undefined, 3]`, `⊥`
 4. What does the following mystery function do? What is its type? Describe it (to yourself or a loved one) in standard English and then test it out in the REPL to make sure you were correct.
 
-```
+```haskell
 itIsMystery xs =
 map (\x -> elem x "aeiou") xs
 ```
@@ -753,7 +753,7 @@ map (\x -> elem x "aeiou") xs
 a) `map (^2) [1..10]`, `[1,4,9,16,25,36,49,64,81,100]`
 
 b) 
-```
+```haskell
 map minimum [[1..10], [10..20], [20..30]] 
 -- n.b. `minimum` is not the same function 
 -- as the `min` that we used before
@@ -765,7 +765,7 @@ c) `map sum [[1..5], [1..5], [1..5]]`, `[15,15,15]`
 
 6. Back in chapter 7, you wrote a function called `foldBool`. That function exists in a module known as `Data.Bool` and is called `bool`. Write a function that does the same (or similar, if you wish) as the map (if-then-else) function you saw above but uses bool instead of the if-then-else syntax. Your first step should be bringing the `bool` function into scope by typing import `Data.Bool` at your Prelude prompt.
 
-```
+```haskell
 map (\x -> bool x (-x) (x == 3)) [1..10]
 ```
 
@@ -773,19 +773,19 @@ map (\x -> bool x (-x) (x == 3)) [1..10]
 
 1. Given the above, how might we write a filter function that would give us all the multiples of 3 out of a list from 1-30?
 
-```
+```haskell
 filter (\x -> (rem x 3) == 0) [1..30]
 ```
 
 2. Recalling what we learned about function composition, how could we compose the above function with the length function to tell us _how many_ multiples of 3 there are between 1 and 30?
 
-```
+```haskell
 length (filter (\x -> rem x 3 == 0) [1..30])
 ```
 
 3. Next we're going to work on removing all articles ('the', 'a', and 'an') from sentences. You want to get to something that works like this:
 
-```
+```haskell
 Prelude> myFilter "the brown dog was a goof"
 ["brown","dog","was","goof"]
 ```
@@ -799,12 +799,12 @@ You may recall that earlier in this chapter we asked you to write a function tha
 
 1. Write your own version of zip and ensure it behaves the same as the original.
 
-```
+```haskell
 zip :: [a] -> [b] -> [(a, b)]
 zip = undefined
 ```
 
-```
+```haskell
 zippy [] = []
 zippy [] _ = []
 zippy _ [] = []
@@ -813,13 +813,13 @@ zippy (x:xs) (y:ys) = (x, y) : zippy xs ys
 
 2. Do what you did for zip, but now for zipWith:
 
-```
+```haskell
 zipWith :: (a -> b -> c)
         -> [a] -> [b] -> [c]
 zipWith = undefined
 ```
 
-```
+```haskell
 zippyWith _ [] _ = []
 zippyWith _ _ [] = []
 zippyWith f (x:xs) (y:ys) = f x y : zippypWith f xs ys
@@ -827,6 +827,46 @@ zippyWith f (x:xs) (y:ys) = f x y : zippypWith f xs ys
 
 3. Rewrite your zip in terms of the zipWith you wrote.
 
-```
+```haskell
 zippy = zippyWith (\x y -> (x, y))
 ```
+
+## 9.12 Chapter Exercises
+
+### Data.Char
+
+1. Query the types of `isUpper` and `toUpper`.
+
+2. Given the following behaviors, which would we use to write a function that filters all the uppercase letters out of a String? Write that function such that, given the input
+"HbEfLrLxO," your function will return "HELLO."
+
+```haskell
+Prelude Data.Char> isUpper 'J'
+True
+Prelude Data.Char> toUpper 'j'
+'J'
+```
+
+```haskell
+onlyUpper :: String -> String
+onlyUpper = filter isUpper
+```
+
+3. Write a function that will capitalize the first letter of a string and return the entire string. For example, if given the argument "julie," it will return "Julie."
+
+```haskell
+cap :: String -> String
+cap (x: xs) = toUpper x : xs
+```
+
+4. Now make a new version of that function that is recursive such that if you give it the input "woot" it will holler back at you "WOOT." The type signature won’t change, but you will want to add a base case.
+
+```haskell
+convertToUpper :: String -> String
+convertToUpper "" = ""
+convertToUpper (x : xs) = toUpper x : converToUpper xs
+```
+
+5. 
+
+6. 
