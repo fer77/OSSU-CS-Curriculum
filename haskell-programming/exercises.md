@@ -886,14 +886,54 @@ capFirst = toUpper . head
 
 1.
 ```haskell
-
+myOr :: [Bool] -> Bool
+myOr [] = False
+myOr (x:xs) = x || myOr xs
 ```
 2.
+```haskell
+myAny :: (a -> Bool) -> [a] -> Bool 
+myAny _ [] = False
+myAny f (x:xs) = f x || myAny f xs
+```
 3.
+```haskell
+myElem :: Eq a => a -> [a] -> Bool 
+myElem _ [] = False
+myElem f (x:xs) = f == x || myElem f xs
+```
 4.
+```haskell
+```
 5.
+```haskell
+module Squish where
+  squish :: [[a]] -> [a]
+  squish [] = []
+  squish (x : xs) = x ++ squish xs
+```
 6.
+```haskell
+module SquishMap where
+  squishMap :: (a -> [b]) -> [a] -> [b]
+  squishMap _ [] = []
+  squishMap f (x : xs) = f x ++ squishMap f xs
+```
 7.
+```haskell
+module SquishAgain where
+  squishMap :: (a -> [b]) -> [a] -> [b]
+  squishMap _ [] = []
+  squishMap f (x : xs) = f x ++ squishMap f xs
+  squishAgain :: [[a]] -> [a]
+  squishAgain = squishMap (\x -> x)
+```
 8.
+```haskell
+```
 9.
+```haskell
+```
 10.
+```haskell
+```
