@@ -746,3 +746,5 @@ ___
 `*` means that the type is a _concrete type_. A _concrete type_ is a type that doesn't take any type parameters and values can only have types that are concrete types.
 
 ## Input and Output
+
+### Hello, world!
