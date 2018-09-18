@@ -904,29 +904,23 @@ myElem f (x:xs) = f == x || myElem f xs
 ```
 4.
 ```haskell
+myReverse :: [a] -> [a]
+myReverse = foldl (flip (:)) []
 ```
 5.
 ```haskell
-module Squish where
-  squish :: [[a]] -> [a]
-  squish [] = []
-  squish (x : xs) = x ++ squish xs
+squish :: [[a]] -> [a]
+myReverse = foldl (flip (:)) []
 ```
 6.
 ```haskell
-module SquishMap where
-  squishMap :: (a -> [b]) -> [a] -> [b]
-  squishMap _ [] = []
-  squishMap f (x : xs) = f x ++ squishMap f xs
+squishMap :: (a -> [b]) -> [a] -> [b]
+squishMap f = foldr ((++) . f) []
 ```
 7.
 ```haskell
-module SquishAgain where
-  squishMap :: (a -> [b]) -> [a] -> [b]
-  squishMap _ [] = []
-  squishMap f (x : xs) = f x ++ squishMap f xs
-  squishAgain :: [[a]] -> [a]
-  squishAgain = squishMap (\x -> x)
+squishAgain :: [[a]] -> [a]
+squishAgain = squishMap id
 ```
 8.
 ```haskell
