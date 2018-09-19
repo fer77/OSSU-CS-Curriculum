@@ -748,3 +748,5 @@ ___
 ## Input and Output
 
 ### Hello, world!
+
+In imperative languages, `return` usually ends the execution of a method or subroutine and makes it report some sort of value to whoever called it. I Haskell using `return` doesn't cause the I/O do block to end in execution or anything like that. `return` is sort of the opposite to `<-`. While `return` takes a value and wraps it up in a box, `<-` takes a box (and performs it) and takes the value out of it and binds it.
