@@ -749,4 +749,12 @@ ___
 
 ### Hello, world!
 
-In imperative languages, `return` usually ends the execution of a method or subroutine and makes it report some sort of value to whoever called it. I Haskell using `return` doesn't cause the I/O do block to end in execution or anything like that. `return` is sort of the opposite to `<-`. While `return` takes a value and wraps it up in a box, `<-` takes a box (and performs it) and takes the value out of it and binds it.
+In imperative languages, `return` usually ends the execution of a method or subroutine and makes it report some sort of value to whoever called it. I Haskell using `return` doesn't cause the I/O do block to end in execution or anything like that. `return` is sort of the opposite to `<-`. While `return` takes a value and wraps it up in a box, `<-` takes a box (and performs it) and takes the value out of it and binds it. Use `return` to make an I/O action that always has our desired result contained and we put it at the end.
+
+**putStr** like `putStrLn`, only `putStr` doesn't jump into a new line after printing out the string while `putStrLn` does (putstr_test.hs).
+
+**putChar** takes a character and returns an I/O action that will print it out to the terminal (putchar_test.hs).
+
+**print** Basically, `putStrLn . show`. It first runs `show` on a value and then feeds that to `putStrLn`, which returns an I/O action that will print out our value.
+
+**getChar** reads a character from the input. Its type is `getChar :: IO Char`, because the result contained within the I/O action is a `Char`. Note that due to buffering, reading of the characters won't actually happen until the user mashes the return key.
