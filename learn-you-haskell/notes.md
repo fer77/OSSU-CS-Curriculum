@@ -758,3 +758,9 @@ In imperative languages, `return` usually ends the execution of a method or subr
 **print** Basically, `putStrLn . show`. It first runs `show` on a value and then feeds that to `putStrLn`, which returns an I/O action that will print out our value.
 
 **getChar** reads a character from the input. Its type is `getChar :: IO Char`, because the result contained within the I/O action is a `Char`. Note that due to buffering, reading of the characters won't actually happen until the user mashes the return key.
+
+### Files and streams
+
+**getChar** is an I/O action that reads a single character from the terminal. **getLine** is an I/O action that reads a line from the terminal.
+
+**getContents**. is an I/O action that reads everything from the standard input until it encounters an end-of-file character.
