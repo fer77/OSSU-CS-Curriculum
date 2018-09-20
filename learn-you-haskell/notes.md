@@ -764,3 +764,8 @@ In imperative languages, `return` usually ends the execution of a method or subr
 **getChar** is an I/O action that reads a single character from the terminal. **getLine** is an I/O action that reads a line from the terminal.
 
 **getContents**. is an I/O action that reads everything from the standard input until it encounters an end-of-file character.
+
+`stdout`(standard output) and `stdin`(standard input), writing to and reading from files is very much like writing to the standard output and reading from the standard input.
+
+**openFile**. :t `openFile :: FilePath -> IOMode -> IO Handle`. It states: `openFile` takes a file path and an `IOMode` and returns an I/O action that will open a file and have the file's associated handle encapsulated as its result.
+
