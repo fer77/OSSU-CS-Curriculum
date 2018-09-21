@@ -772,3 +772,15 @@ In imperative languages, `return` usually ends the execution of a method or subr
 **readFile** :t `readFile :: FilePath -> IO String`. Because there's no handle with which to identify the file, Haskell does that for automatically when we use `readFile`. `FilePath` is just a fancy name for `String`.
 
 `writeFile` :t `writeFile :: FilePath -> String -> IO ()`.
+
+### Command line arguments
+
+### Randomness
+
+**referential transparency** THAT means that a function, if given the same parameters twice, must produce the same result twice.
+
+**random** :t `random :: (RandomGen g, Random a) => g -> (a, g)`
+_RandomGen_ typeclass is for types that can _act_ as sources of randomness. 
+_Random_ typeclass is for things that can _take_ on random values.
+
+**mkStdGen** manually makes a random generator. :t `mkStdGen :: Int -> StdGen`
