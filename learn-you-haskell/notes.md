@@ -791,3 +791,20 @@ _Random_ typeclass is for things that can _take_ on random values.
 
 ### Exceptions
 
+predicates that act on `IOError` are:
+
+- isAlreadyExistsError
+
+- isDoesNotExistError
+
+- isAlreadyInUseError
+
+- isFullError
+
+- isEOFError
+
+- isIllegalOperation
+
+- isPermissionError
+
+- isUserError
