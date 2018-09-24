@@ -784,3 +784,10 @@ _RandomGen_ typeclass is for types that can _act_ as sources of randomness.
 _Random_ typeclass is for things that can _take_ on random values.
 
 **mkStdGen** manually makes a random generator. :t `mkStdGen :: Int -> StdGen`
+
+### Bytestrings
+
+**thunks** the technical term for _promise_.
+
+### Exceptions
+
