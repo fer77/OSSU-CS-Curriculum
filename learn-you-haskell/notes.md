@@ -808,3 +808,4 @@ predicates that act on `IOError` are:
 - isPermissionError
 
 - isUserError
+
