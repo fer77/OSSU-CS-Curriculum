@@ -1,3 +1,6 @@
+import System.Random
+import Control.Monad(when) 
+
 threeCoins :: StdGen -> (Bool, Bool, Bool)  
 threeCoins gen =   
     let (firstCoin, newGen) = random gen  
