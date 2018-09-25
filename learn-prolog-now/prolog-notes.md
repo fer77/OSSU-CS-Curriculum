@@ -488,3 +488,43 @@ Succeeds if its arguments evaluate to different integers.
 
 ### Types of Terms
 
+`atom/1`	Is the argument an atom?
+`integer/1`	Is the argument an integer?
+`float/1`	Is the argument a floating point number?
+`number/1`	Is the argument an integer or a floating point number?
+`atomic/1`	Is the argument a constant?
+`var/1`	Is the argument an uninstantiated variable?
+`nonvar/1`	Is the argument an instantiated variable or another term that is not an un instantiated variable?
+
+### The Structure of Terms
+
+### Strings
+
+## 9.4 Operators
+
+### Properties of operators
+
+**infix operators** functors that can be written between arguments:
+
+```haskell
+:- , --> , ; , ’,’ , = , =.. , == and so on...
+```
+
+**prefix operators** written before their arguments.
+
+**postfix operators** written after.
+
+In Prolog, **precedence** is expressed by a number between `0` and `1200`; the higher the number, the greater the **precedence**.
+
+### Defining operators
+
+Operator definitions in Prolog look like this:
+
+> :-  op(Precedence,Type,Name).
+
+`+` this atom is `yfx`, which says that `+` is an _infix operator_; `f` represents the operator, and the `x` and `y` the _arguments_. `x` stands for an argument which has a precedence which is lower than the precedence of `+` and `y` stands for an argument which has a precedence which lower or equal to the precedence of `+` . There are the following possibilities for type:
+
+
+- infix     xfx , xfy , yfx
+- prefix	fx , fy
+- suffix	xf , yf
