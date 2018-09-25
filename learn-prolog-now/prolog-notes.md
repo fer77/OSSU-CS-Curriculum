@@ -506,7 +506,7 @@ Succeeds if its arguments evaluate to different integers.
 
 **infix operators** functors that can be written between arguments:
 
-```haskell
+```
 :- , --> , ; , ’,’ , = , =.. , == and so on...
 ```
 
