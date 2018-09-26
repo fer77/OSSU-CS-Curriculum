@@ -100,10 +100,15 @@ groundterm_in_list([]).
 Which of the following are well-formed terms? What are the main operators? Give the bracketings.
 
 ?- X is_a witch. -> true.
-%% ?- harry and ron and hermione are friends. -> true
-%% ?- harry is_a wizard and likes quidditch. -> false
-%% ?- dumbledore is_a famous famous wizard. -> true
 
-%% is_a(X, witch).
-%% are(and(harry, and(ron, hermione)), friends).
-%% is_a(dumbledore, famous(famous(wizard))).
+?- harry and ron and hermione are friends. -> true
+
+?- harry is_a wizard and likes quidditch. -> false
+
+?- dumbledore is_a famous famous wizard. -> true
+
+is_a(X, witch).
+
+are(and(harry, and(ron, hermione)), friends).
+
+is_a(dumbledore, famous(famous(wizard))).
