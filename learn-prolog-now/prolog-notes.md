@@ -528,3 +528,20 @@ Operator definitions in Prolog look like this:
 - infix     xfx , xfy , yfx
 - prefix	fx , fy
 - suffix	xf , yf
+
+The property of `display/1` makes it a very useful tool for learning how operators work in Prolog:
+
+```
+?- display(2+3+4). 
+   +(+(2,  3),  4) 
+    
+   yes
+```
+
+The built-in predicate write/1 takes a term and prints it to the screen in the user-friendly notation:
+
+```
+?- write(+(2,3)). 
+   2+3 
+   yes 
+```
