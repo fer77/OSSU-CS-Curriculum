@@ -95,11 +95,12 @@
 
 ;<template from ListOfNumber>
 
-;; return a list of postive or negative numbers depending on the operation
+;; given a list, return a list of only the elements that satisfy the predicate p 
 (check-expect (filter2 negative? empty) empty)
 (check-expect (filter2 positive? empty) empty)
-(check-expect (filter2 negative? (list -2 -1 0 1)) (list -2 -1))
 (check-expect (filter2 positive? (list -1 0 1 2)) (list 1 2))
+(check-expect (filter2 negative? (list -2 -1 0 1)) (list -2 -1))
+(check-expect (filter2 false? (list false true false false true)) (list false false false))
 
 (define (positive-only lon) (filter2 positive? lon))
 
