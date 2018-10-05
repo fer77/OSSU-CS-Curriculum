@@ -21,9 +21,7 @@
 
 ;(define (contains-ubc? los) false) ;stub
 
-;<template from ListOfString>
-
-(define (contains-ubc? los) (team? "UBC" los))
+(define (contains-ubc? los) (contains? "UBC" los))
 
 ;; ListOfString -> Boolean
 ;; produce true if los includes "McGill"
@@ -34,17 +32,22 @@
 
 ;(define (contains-mcgill? los) false) ;stub
 
-;<template from ListOfString>
+(define (contains-mcgill? los) (contains? "McGill" los))
 
-(define (contains-mcgill? los) (team? "McGill" los))
+;; produce true if los includes s
+(check-expect (contains? "UBC" empty) false)
+(check-expect (contains? "UBC" (cons "McGill" empty)) false)
+(check-expect (contains? "UBC" (cons "UBC" empty)) true)
+(check-expect (contains? "UBC" (cons "McGill" (cons "UBC" empty))) true)
+(check-expect (contains? "UBC" (cons "UBC" (cons "McGill" empty))) true)
+(check-expect (contains? "Toronto" (cons "UBC" (cons "McGill" empty))) false)
 
-(define (team? t los)
+(define (contains? s los)
   (cond [(empty? los) false]
         [else
-         (if (string=? (first los) t)
+         (if (string=? (first los) s)
              true
-             (team? t (rest los)))]))
-
+             (contains? s (rest los)))]))
 
 ;; ====================
 
@@ -70,6 +73,8 @@
 
 (define (square-roots lon) (mapS sqrt lon))
 
+
+
 (define (mapS op lon)
   (cond [(empty? lon) empty]
         [else
@@ -87,14 +92,7 @@
 
 ;<template from ListOfNumber>
 
-(define (positive-only lon)
-  (cond [(empty? lon) empty]
-        [else
-         (if (positive? (first lon))
-             (cons (first lon)
-                   (positive-only (rest lon)))
-             (positive-only (rest lon)))]))
-
+(define (positive-only lon) (filter2 positive? lon))
 
 ;; ListOfNumber -> ListOfNumber
 ;; produce list with only negative? elements of lon
@@ -105,10 +103,12 @@
 
 ;<template from ListOfNumber>
 
-(define (negative-only lon)
+(define (negative-only lon) (filter2 negative? lon))
+  
+(define (filter2 op lon)
   (cond [(empty? lon) empty]
         [else
-         (if (negative? (first lon))
+         (if (op (first lon))
              (cons (first lon)
-                   (negative-only (rest lon)))
-             (negative-only (rest lon)))]))
+                   (filter2 op (rest lon)))
+             (filter2 op (rest lon)))]))
