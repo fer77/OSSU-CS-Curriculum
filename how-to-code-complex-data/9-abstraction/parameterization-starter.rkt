@@ -73,7 +73,10 @@
 
 (define (square-roots lon) (mapS sqrt lon))
 
-
+;; given fn and (list n0 n1 ...) produce (list (fn n0) (fn n1) ...)
+(check-expect (mapS sqr empty) empty)
+(check-expect (mapS sqr (list 2 4)) (list 4 16))
+(check-expect (mapS sqrt (list 16 9)) (list 4 3))
 
 (define (mapS op lon)
   (cond [(empty? lon) empty]
@@ -91,6 +94,12 @@
 ;(define (positive-only lon) empty) ;stub
 
 ;<template from ListOfNumber>
+
+;; return a list of postive or negative numbers depending on the operation
+(check-expect (filter2 negative? empty) empty)
+(check-expect (filter2 positive? empty) empty)
+(check-expect (filter2 negative? (list -2 -1 0 1)) (list -2 -1))
+(check-expect (filter2 positive? (list -1 0 1 2)) (list 1 2))
 
 (define (positive-only lon) (filter2 positive? lon))
 
