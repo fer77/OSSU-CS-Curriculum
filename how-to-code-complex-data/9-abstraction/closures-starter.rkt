@@ -2096,11 +2096,11 @@
  #";; about the language level of this file in a form that our tools ca"
  #"n easily process."
 ) 0 0 4 29 1 #"\n"
-0 0 4 3 193
+0 0 4 3 190
 (
- #"#reader(lib \"htdp-intermediate-reader.ss\" \"lang\")((modname |#clo"
- #"sures-starter|) (read-case-sensitive #t) (teachpacks ()) (htdp-setti"
- #"ngs #(#t constructor repeating-decimal #f #t none #f () #f)))"
+ #"#reader(lib \"htdp-intermediate-reader.ss\" \"lang\")((modname closu"
+ #"res-starter) (read-case-sensitive #t) (teachpacks ()) (htdp-settings"
+ #" #(#t constructor repeating-decimal #f #t none #f () #f)))"
 ) 0 0 4 29 1 #"\n"
 0 0 24 3 1 #"("
 0 0 15 3 7 #"require"
