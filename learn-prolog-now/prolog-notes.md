@@ -545,3 +545,11 @@ The built-in predicate write/1 takes a term and prints it to the screen in the u
    2+3 
    yes 
 ```
+
+## 10.1 The Cut
+
+**!** _(exclamation mark)_ built-in Prolog predicate called cut. Offers a more direct way of exercising control over the way that Prolog looks for solutions.
+
+## 10.2 Using Cut
+
+## 10.3 Negation as Failure
