@@ -71,3 +71,22 @@ Now, it’s plausible to assume that whenever it is possible to take a direct tr
    ?-  route(forbach,metz,Route). 
    Route  =  [forbach,freyming,stAvold,fahlquemont,metz]
 ```
+
+```
+directPath(X, Y) :-
+    directTrain(X, Y).
+
+directPath(X, Y) :-
+    directTrain(Y, X),!.
+
+route(Y, Y, RevL, L) :-
+    reverse(RevL, L).
+
+route(X, Y, RevL, L) :-
+    directPath(X, Z),
+    not(member(Z, RevL)),
+    route(Z, Y, [Z | RevL], L).
+
+route(X, Y, L) :-
+    route(X, Y, [X], L).
+```
