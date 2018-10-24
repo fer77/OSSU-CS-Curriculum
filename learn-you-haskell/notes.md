@@ -809,3 +809,12 @@ predicates that act on `IOError` are:
 
 - isUserError
 
+## Functionally Solving Problems
+
+### Reverse Polish notation calculator
+
+**reverse polish notation** a way of writing mathematical expressions. Easy to understand and use because there's no need for parentheses and easy to punch into a calculator.
+
+RPN: `10 4 3 + 2 * -`
+
+Every time a number is encountered, push it on to the stack. When an operator is encountered, take the two numbers that are on top of the stack, and use the operator on those two numbers and push the resulting number back onto the stack.
