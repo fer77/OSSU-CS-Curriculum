@@ -929,5 +929,40 @@ squishAgain = squishMap id
 ```haskell
 ```
 10.
+** Understanding Folds **
+1. ` foldl (*) 1 [1..5] `
+
+2. `foldl (flip (*)) 1 [1..3]`
+
 ```haskell
+foldl (flip (*)) 1 [1..3]
+((1 *1) * 2) * 3
+6
+```
+
+3. c) foldr, but not foldl, associates to the right
+
+4. a) reduce structure
+
+5.
+```haskell
+-- foldr (++) ["woot", "WOOT", "woot"] X
+foldr (++) ""  ["woot", "WOOT", "woot"]
+
+-- foldr max [] "fear is the little death" X
+foldr max (minBound :: Char) "fear is the little death"
+
+foldr and True [False, True]
+-- This one is more subtle than the previous. Can it ever return a different answer?
+foldr (||) True [False, True]
+
+foldl ((++) . show) "" [1..5]
+
+foldr const 'a' [1..5]
+
+foldr const 0 "tacos"
+
+foldl (flip const) 0 "burritos"
+
+foldl (flip const) 'z' [1..5]
 ```
