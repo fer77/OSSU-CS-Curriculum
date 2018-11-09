@@ -952,17 +952,25 @@ foldr (++) ""  ["woot", "WOOT", "woot"]
 -- foldr max [] "fear is the little death" X
 foldr max (minBound :: Char) "fear is the little death"
 
-foldr and True [False, True]
+-- foldr and True [False, True] X
+foldr (&&) True [False, True]
+
 -- This one is more subtle than the previous. Can it ever return a different answer?
 foldr (||) True [False, True]
 
-foldl ((++) . show) "" [1..5]
+-- foldl ((++) . show) "" [1..5] X
+foldr ((++) . show) "" [1..5]
+or
+foldl (flip ((++) . show)) "" [1..5]
 
-foldr const 'a' [1..5]
+-- foldr const 'a' [1..5] X
+foldl const 'a' [1..5]
+or
+foldr (flip const) 'a' [1..5]
 
-foldr const 0 "tacos"
+-- foldr const 0 "tacos"
 
-foldl (flip const) 0 "burritos"
+-- foldl (flip const) 0 "burritos"
 
-foldl (flip const) 'z' [1..5]
+-- foldl (flip const) 'z' [1..5]
 ```
