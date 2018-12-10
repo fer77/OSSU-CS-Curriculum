@@ -818,3 +818,13 @@ predicates that act on `IOError` are:
 RPN: `10 4 3 + 2 * -`
 
 Every time a number is encountered, push it on to the stack. When an operator is encountered, take the two numbers that are on top of the stack, and use the operator on those two numbers and push the resulting number back onto the stack.
+
+##Functors, Applicative Functors and Monoids
+
+`Functor`, which has only one typeclass method, namely `fmap`, which has a type of `fmap :: (a -> b) -> f a -> f b`. It says:
+
+> give me a function that takes an a and returns a b and a box with an a (or several of them) inside it and I'll give you a box with a b (or several of them) inside it. It kind of applies the function to the element inside the box.
+
+type constructors are instances of `Functor`, like `[]`, `Maybe`, `Either a`.
+
+**lifting** a function that takes a function and returns a new function that's just like the old one. It takes an `a -> b` function and returns a function `f a -> f b`
