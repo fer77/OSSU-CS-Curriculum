@@ -827,4 +827,25 @@ Every time a number is encountered, push it on to the stack. When an operator is
 
 type constructors are instances of `Functor`, like `[]`, `Maybe`, `Either a`.
 
-**lifting** a function that takes a function and returns a new function that's just like the old one. It takes an `a -> b` function and returns a function `f a -> f b`
+**lifting** a function that takes a function and returns a new function that's just like the old one. It takes an `a -> b` function and returns a function `f a -> f b`. Think of fmap as either a function that takes a function and a functor and then maps that function over the functor, or as a function that takes a function and lifts that function so that it operates on functors.
+
+**functor laws**
+
+1. if we map the id function over a functor, the functor that we get back should be the same as the original functor `fmap id = id`.
+2. composing two functions and then mapping the resulting function over a functor should be the same as first mapping one function over the functor and then mapping the other one.
+```haskell
+fmap (f . g) = fmap f . fmap g
+```
+
+these laws hold because the types act like containers or functions:
+```haskell
+fmap (f . g) (Just x)
+-- is the same as
+Just ((f . g) x)
+-- which is the same as
+Just (f (g x))
+```
+
+think of mapping over functors as attaching a transformation to the output of the functor that changes the value.
+
+### Applicative functors
