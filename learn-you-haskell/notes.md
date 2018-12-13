@@ -849,3 +849,15 @@ Just (f (g x))
 think of mapping over functors as attaching a transformation to the output of the functor that changes the value.
 
 ### Applicative functors
+
+Mapping "multi-parameter" functions over functors, we get functors that contain functions inside them.
+
+define a default implementation for the `Applicative` typeclass. The class is defined like so:
+
+```haskell
+class (Functor f) => Applicative f where  
+    pure :: a -> f a  -- plays the role of our applicative functor instance here.
+    (<*>) :: f (a -> b) -> f a -> f b -- <*> is left-associative
+```
+
+If you know that a type constructor is part of the `Applicative` typeclass, it's also in `Functor`, so we can use `fmap` on it.
