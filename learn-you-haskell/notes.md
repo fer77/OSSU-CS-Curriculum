@@ -865,3 +865,18 @@ class (Functor f) => Applicative f where
 If you know that a type constructor is part of the `Applicative` typeclass, it's also a `Functor`, so we can use `fmap` on it.
 
 `ZipList`
+
+**getZipList** `ZipList a` type doesn't have a `Show` instance, so we have to use the `getZipList` function to extract a raw list out of a zip list.
+
+`:` is a function that takes an element and a list and returns a new list with that element at the beginning.
+
+`and` takes a list of booleans and returns `True` if they're all `True`.
+
+```haskell
+and $ map (\f -> f 7) [(>4),(<10),odd]  
+-- True
+```
+
+When used together, `[]` and `sequenceA` take a list of lists and returns a list of lists. Creating lists that have all possible combinations of their elements.
+
+`newtype` vs. `data` when you make a new type from an existing type by using the `newtype` keyword, you can only have one value constructor with only one field. But with `data`, you can make `data` types that have several value constructors each with zero or more fields.
