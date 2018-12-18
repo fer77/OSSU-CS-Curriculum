@@ -880,3 +880,24 @@ and $ map (\f -> f 7) [(>4),(<10),odd]
 When used together, `[]` and `sequenceA` take a list of lists and returns a list of lists. Creating lists that have all possible combinations of their elements.
 
 `newtype` vs. `data` when you make a new type from an existing type by using the `newtype` keyword, you can only have one value constructor with only one field. But with `data`, you can make `data` types that have several value constructors each with zero or more fields.
+
+### _type vs. newtype vs. data_
+
+The **type** keyword is for making type synonyms. Use type synonyms to make type signatures more descriptive by giving types names that tell us something about their purpose in the context of the functions where they're being used.
+
+The **newtype** keyword takes an existing type and wrapps it in a new type, mostly to make that type an instance of certain type classes. When we use newtype to wrap an existing type, the type that we get is separate from the original type.
+
+The **data** keyword allows the making of your own data types. They can have as many constructors and fields as you wish and can be used to implement any algebraic data type by yourself. Everything from lists and Maybe-like types to trees.
+
+If you want type signatures to look cleaner and be more descriptive, use _type_ synonyms. If you want an existing type to be an instance of a type class, use _newtype_. And if you want to make something completely new, use the _data_ keyword.
+
+## Monoids
+
+_associativity_:
+It doesn't matter if we do `(3 * 4) * 5` or `3 * (4 * 5)`. Either way, the result is `60`.
+
+- The function takes two parameters.
+- The parameters and the returned value have the same type.
+- There exists such a value that doesn't change other values when used with the binary function.
+
+A _monoid_ is when you have an _associative_ binary function and a value which acts as an identity with respect to that function. When something acts as an identity with respect to a function, it means that when called with that function and some other value, the result is always equal to that other value.
