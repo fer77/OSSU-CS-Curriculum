@@ -901,3 +901,11 @@ It doesn't matter if we do `(3 * 4) * 5` or `3 * (4 * 5)`. Either way, the resul
 - There exists such a value that doesn't change other values when used with the binary function.
 
 A _monoid_ is when you have an _associative_ binary function and a value which acts as an identity with respect to that function. When something acts as an identity with respect to a function, it means that when called with that function and some other value, the result is always equal to that other value.
+
+monoid laws:
+
+```haskell
+- mempty `mappend` x = x -- statea that mempty has to act as the identity with respect to mappend 
+- x `mappend` mempty = x
+- (x `mappend` y) `mappend` z = x `mappend` (y `mappend` z) -- says that mappend has to be associative i.e. that the order in which we use mappend
+```
