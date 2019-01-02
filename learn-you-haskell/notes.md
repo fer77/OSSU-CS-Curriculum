@@ -891,7 +891,7 @@ The **data** keyword allows the making of your own data types. They can have as 
 
 If you want type signatures to look cleaner and be more descriptive, use _type_ synonyms. If you want an existing type to be an instance of a type class, use _newtype_. And if you want to make something completely new, use the _data_ keyword.
 
-## Monoids
+### Monoids
 
 _associativity_:
 It doesn't matter if we do `(3 * 4) * 5` or `3 * (4 * 5)`. Either way, the result is `60`.
@@ -905,7 +905,24 @@ A _monoid_ is when you have an _associative_ binary function and a value which a
 monoid laws:
 
 ```haskell
-- mempty `mappend` x = x -- statea that mempty has to act as the identity with respect to mappend 
+- mempty `mappend` x = x -- states that empty has to act as the identity with respect to mappend 
 - x `mappend` mempty = x
 - (x `mappend` y) `mappend` z = x `mappend` (y `mappend` z) -- says that mappend has to be associative i.e. that the order in which we use mappend
 ```
+
+### Lists are monoids
+the `++` function and the empty list `[]` form a monoid.
+
+### `Product` and `Sum`
+
+### `Any` and `All`
+
+### The Ordering monoid
+
+when we `mappend` two `Ordering` values, the one on the left is kept, unless the value on the left is EQ, in which case the right one is the result.
+
+> when using `mappend`, its left parameter is always kept unless it's `EQ`, in which case the right one is kept.
+
+### `Maybe` the monoid
+
+
