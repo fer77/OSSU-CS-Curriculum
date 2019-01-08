@@ -1,4 +1,4 @@
-## Starting Out
+****## Starting Out
 
 Haskell has a static type system. The type of every expression is known at compile time
 
@@ -925,4 +925,7 @@ when we `mappend` two `Ordering` values, the one on the left is kept, unless the
 
 ### `Maybe` the monoid
 
-
+### Using monoids to fold data structures
+Folds can be defined over almost any data structure.
+**Foldable** is for things that can be folded up! It can be found in `Data.Foldable`, `import qualified Foldable as F`.
+These work on any instance of `Foldable`.
