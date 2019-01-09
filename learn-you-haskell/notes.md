@@ -929,3 +929,10 @@ when we `mappend` two `Ordering` values, the one on the left is kept, unless the
 Folds can be defined over almost any data structure.
 **Foldable** is for things that can be folded up! It can be found in `Data.Foldable`, `import qualified Foldable as F`.
 These work on any instance of `Foldable`.
+
+`foldMap` is not only useful for making new instances of `Foldable`; it comes in handy for reducing our structure to a single monoid value.
+
+```haskell
+ghci> getAny $ F.foldMap (\x -> Any $ x == 3) testTree  
+>> True
+```
