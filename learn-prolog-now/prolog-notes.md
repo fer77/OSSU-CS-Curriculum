@@ -553,3 +553,32 @@ The built-in predicate write/1 takes a term and prints it to the screen in the u
 ## 10.2 Using Cut
 
 ## 10.3 Negation as Failure
+
+# CH. 11
+
+# Database Manipulation and Collecting Solutions
+
+## 11.1 Database Manipulation
+
+> Although a useful technique, database manipulation can lead to dirty, hard to understand, code... It is a non-declarative, non logical, feature of Prolog that should be used cautiously.
+
+Prolog's four database manipulation commands are:
+
+- assert, asserts facts into a database, and also assert new rules: `assert(  (naive(X):-  happy(X))  ).`
+- retract, removes information when no longer needed: `retract(happy(marcellus)).`
+- retractall, this will remove all facts from the database.
+- assertz. Places asserted material at the end of the database.
+- asserta. Places asserted material at the beginning of the database.
+
+**memoisation**(caching) storing the results to computations, so that if we need to ask the same question in the future, we don’t need to redo the work: we just look up the asserted fact.
+
+## 11.2 Collecting Solutions
+
+Prolog has three predicates that do this: 
+All these collect all the solutions to a query and put them in a single list
+- findall, `findall(Object,Goal,List).` produces a list `List` of all the objects `Object` that satisfy the goal `Goal`. Often Object is a variable.
+- bagof, a more fine-grained predicate than `findall`. It extracts the information in a more structured way. `bagof` can also do the same job as `findall`, with the help of a special piece of syntax, namely `^`.
+The difference between `findall` and `bagof`, is that `bagof` fails if the goal `Goal` specified in its second argument is not satisfied (`findall` returns an empty list in those cases). So the query:
+`bagof(Object,Goal,List)` yields `no`.
+- and setof, the `setof` predicate is similar to `bagof` , except: the lists produced are ordered and the list contains no repeated items.
+
