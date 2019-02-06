@@ -582,3 +582,17 @@ The difference between `findall` and `bagof`, is that `bagof` fails if the goal 
 `bagof(Object,Goal,List)` yields `no`.
 - and setof, the `setof` predicate is similar to `bagof` , except: the lists produced are ordered and the list contains no repeated items.
 
+# Chapter 12
+# Working With Files
+## 12.1 Splitting Programs over Files
+
+module declarations:
+
+```
+:- module(ModuleName,
+          List_of_Predicates_to_be_Exported).
+```
+
+## 12.2 Writing to Files
+
+**streams** are connections to files.
