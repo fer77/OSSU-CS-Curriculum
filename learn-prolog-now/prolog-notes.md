@@ -596,3 +596,9 @@ module declarations:
 ## 12.2 Writing to Files
 
 **streams** are connections to files.
+
+## 12.3 Reading from Files
+
+ the **read** predicate is only able to handle Prolog terms and will cause a run-time error if used to read from a stream when there is nothing to read.
+ 
+ The built-in predicate **at_end_of_stream** checks for a stream that has been reached, and can be used as a safety-net. For a stream X , `at_end_of_stream(X)` will evaluate `true` when all terms in the corresponding file have been read.
