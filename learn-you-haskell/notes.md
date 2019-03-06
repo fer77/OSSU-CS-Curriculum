@@ -1,4 +1,4 @@
-****## Starting Out
+## Starting Out
 
 Haskell has a static type system. The type of every expression is known at compile time
 
@@ -936,3 +936,7 @@ These work on any instance of `Foldable`.
 ghci> getAny $ F.foldMap (\x -> Any $ x == 3) testTree  
 >> True
 ```
+
+## A Fistful of Monads
+_monads_, are beefed up applicative functors, much like applicative functors are only beefed up _functors_.
+an _applicative_ value can be seen as a value with an added context (A fancy value).
