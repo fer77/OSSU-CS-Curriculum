@@ -940,3 +940,16 @@ ghci> getAny $ F.foldMap (\x -> Any $ x == 3) testTree
 ## A Fistful of Monads
 _monads_, are beefed up applicative functors, much like applicative functors are only beefed up _functors_.
 an _applicative_ value can be seen as a value with an added context (A fancy value).
+
+## Getting our feet wet with Maybe
+
+`maybe` value represents a computation that might have failed.
+
+>> functions in Haskell are _curried_ by default, that is a function that seems to take several parameters actually only takes one parameter and returns a function that takes the next parameter and so on...
+
+`>>=` or bind, takes a monadic value and a function that takes a normal value and returns a monadic value and manages to apply that function to the monadic value.
+
+## The Monad type class
+
+>> `return` is nothing like the `return` in other languages. It doesn't end function execution, it just takes a normal value and puts it in a context.
+
