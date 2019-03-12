@@ -948,8 +948,12 @@ an _applicative_ value can be seen as a value with an added context (A fancy val
 >> functions in Haskell are _curried_ by default, that is a function that seems to take several parameters actually only takes one parameter and returns a function that takes the next parameter and so on...
 
 `>>=` or bind, takes a monadic value and a function that takes a normal value and returns a monadic value and manages to apply that function to the monadic value.
+**monadic value** a value with a context.
 
 ## The Monad type class
 
 >> `return` is nothing like the `return` in other languages. It doesn't end function execution, it just takes a normal value and puts it in a context.
 
+_monads_ come with their own type class: `Monad`. Every monad is an applicative functor, even if the `Monad` class declaration doesn't say so.
+
+## do notation
